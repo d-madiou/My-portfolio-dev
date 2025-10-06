@@ -1,0 +1,10 @@
+
+@tailwind utilities;
+
+
+
+/* @custom-variant dark (&:is(.dark *)); */
+
+body {
+  @apply bg-brand-black text-white font-sans antialiased;
+}
