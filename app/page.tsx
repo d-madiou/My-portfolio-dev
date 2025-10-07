@@ -6,6 +6,8 @@ import { ModeToggle } from "@/components/theme/mode-toggle";
 
 import Header from "@/components/layout/Header";
 import Hero from "@/components/layout/Hero";
+import Marquee from "@/components/layout/Marque";
+import AboutUs from "@/components/layout/About";
 // import Marquee from "@/components/Marquee";
 // import About from "@/components/About";
 // import Services from "@/components/Services";
@@ -14,19 +16,13 @@ import Hero from "@/components/layout/Hero";
 
 export default function Home() {
   return (
-    <main className="relative z-10 bg-brand-black overflow-x-hidden min-h-screen">
-      {/* Background gradients */}
+    <main className="bg-[#080808] overflow-x-hidden">
       <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-[radial-gradient(circle_at_top_left,_rgba(175,255,0,0.1),_transparent_40%)]"></div>
       <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-[radial-gradient(circle_at_bottom_right,_rgba(175,255,0,0.1),_transparent_40%)]"></div>
-
-      {/* Header */}
       <Header />
-      {/* <section className="flex flex-col items-center justify-center gap-4 py-20">
-        <ModeToggle />
-      </section> */}
-
-      {/* Portfolio sections */}
       <Hero />
+      <Marquee />
+      <AboutUs />
     </main>
   );
 }

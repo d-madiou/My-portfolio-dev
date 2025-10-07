@@ -31,14 +31,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* Full-width container */}
-          <div className="w-full min-h-screen flex flex-col">
-            {/* Sticky header touching top edge */}
-            {/* <Header /> */}
-
-            {/* Hero or main content filling available space */}
-            <main className="flex-1 w-full">
-              {/* <Hero /> */}
+          <div className="w-full min-h-screen flex flex-col items-center justify-center">
+            <main className="flex-1 w-full items-center justify-center">
               {children}
             </main>
           </div>

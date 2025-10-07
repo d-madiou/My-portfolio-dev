@@ -2,7 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
-import { LogoIcon, XIcon, FacebookIcon, InstagramIcon, ChevronDownIcon } from "./Icon"
+import { LogoIcon, XIcon, FacebookIcon, InstagramIcon, ChevronDownIcon, GithubIcon, LinkedInIcon} from "./Icon"
 
 const NavItem: React.FC<{ children: React.ReactNode; hasDropdown?: boolean }> = ({ children, hasDropdown }) => (
   <a
@@ -36,7 +36,7 @@ const Header: React.FC = () => {
           {/* Logo */}
           <a href="#" className="flex items-center gap-3 group">
             <LogoIcon className="h-10 w-10 transition-transform duration-300 group-hover:scale-105" />
-            <span className="text-2xl font-bold tracking-tight bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
+            <span className="text-2xl text-white font-bold tracking-tight bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
               Thierno.
             </span>
           </a>
@@ -62,6 +62,13 @@ const Header: React.FC = () => {
             <SocialIcon label="Instagram">
               <InstagramIcon className="h-5 w-5" />
             </SocialIcon>
+            <SocialIcon label="GitHub">
+            <GithubIcon className="h-5 w-5" />
+          </SocialIcon>
+          <SocialIcon label="LinkedIn">
+            <LinkedInIcon className="h-5 w-5" />
+          </SocialIcon>
+
           </div>
 
           {/* Mobile Menu Button */}

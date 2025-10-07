@@ -1,10 +1,18 @@
 
+@tailwind base;
+@tailwind components;
 @tailwind utilities;
 
+/* Added custom animation for background pattern */
+@keyframes movePattern {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(180px, 180px);
+  }
+}
 
-
-/* @custom-variant dark (&:is(.dark *)); */
-
-body {
-  @apply bg-brand-black text-white font-sans antialiased;
+.animate-movePattern {
+  animation: movePattern 20s linear infinite;
 }

@@ -1,6 +1,9 @@
 import type React from "react"
 import { StarIcon, ArrowRightIcon, JavaScriptIcon, PythonIcon } from "./Icon"
 import Image from "../../assets/images/ThiernoHero.png"
+import Image1 from "../../assets/images/Image1.jpeg"
+import Image2 from "../../assets/images/Image2.jpeg"
+import Image3 from "../../assets/images/Image3.jpeg"
 
 const Hero: React.FC = () => {
   return (
@@ -45,7 +48,7 @@ const Hero: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-8 pt-4">
             {/* Get Started Button */}
             <button className="group bg-brand-gray-dark/80 backdrop-blur-sm text-white font-semibold py-4 px-8 rounded-xl flex items-center gap-3 hover:bg-brand-gray-dark transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-brand-green/10 border border-white/10">
-              <span>Get Started</span>
+              <span>Join Me</span>
               <div className="bg-brand-green text-black rounded-full p-2 transition-transform duration-300 group-hover:translate-x-1">
                 <ArrowRightIcon className="h-4 w-4" />
               </div>
@@ -56,17 +59,17 @@ const Hero: React.FC = () => {
               <div className="flex -space-x-3">
                 <img
                   className="w-11 h-11 rounded-full border-2 border-brand-black ring-2 ring-brand-green/20"
-                  src="https://picsum.photos/id/1005/100/100"
+                  src={Image3.src}
                   alt="Customer testimonial"
                 />
                 <img
                   className="w-11 h-11 rounded-full border-2 border-brand-black ring-2 ring-brand-green/20"
-                  src="https://picsum.photos/id/1011/100/100"
+                  src={Image2.src}
                   alt="Customer testimonial"
                 />
                 <img
                   className="w-11 h-11 rounded-full border-2 border-brand-black ring-2 ring-brand-green/20"
-                  src="https://picsum.photos/id/1027/100/100"
+                  src={Image1.src}
                   alt="Customer testimonial"
                 />
                 <div className="w-11 h-11 rounded-full border-2 border-brand-black bg-brand-green text-brand-black flex items-center justify-center font-bold text-xs shadow-lg">
@@ -74,8 +77,8 @@ const Hero: React.FC = () => {
                 </div>
               </div>
               <div className="text-left">
-                <p className="font-bold text-white text-base">500+ Happy</p>
-                <p className="text-sm text-brand-gray-light/80">Customer</p>
+                <p className="font-bold text-white text-base"> 15k developers I would like to</p>
+                <p className="text-sm text-brand-gray-light/80">Inspire all over the world</p>
               </div>
             </div>
           </div>
@@ -85,7 +88,7 @@ const Hero: React.FC = () => {
         <div className="relative flex justify-center items-center mt-12 lg:mt-0">
           {/* Decorative Border Frame */}
           <div className="absolute -inset-6 sm:-inset-8 lg:-inset-10">
-            <div className="w-full h-full border-[6px] sm:border-[8px] border-brand-green/80 rounded-[40px] sm:rounded-[50px] rotate-[-8deg] opacity-70 shadow-2xl shadow-brand-green/20" />
+            <div className="w-full h-full border-[6px] sm:border-[8px] border-brand-green/90 rounded-[40px] sm:rounded-[50px] rotate-[-8deg] opacity-70 shadow-2xl shadow-brand-green/20" />
           </div>
 
           {/* Main Image Container */}
