@@ -8,6 +8,7 @@ import Header from "@/components/layout/Header";
 import Hero from "@/components/layout/Hero";
 import Marquee from "@/components/layout/Marque";
 import AboutUs from "@/components/layout/About";
+import Services from "@/components/layout/Services";
 // import Marquee from "@/components/Marquee";
 // import About from "@/components/About";
 // import Services from "@/components/Services";
@@ -23,6 +24,7 @@ export default function Home() {
       <Hero />
       <Marquee />
       <AboutUs />
+      <Services />
     </main>
   );
 }

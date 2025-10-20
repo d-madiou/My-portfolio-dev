@@ -32,11 +32,11 @@ const Hero: React.FC = () => {
 
           {/* Main Heading */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-balance">
-            <span className="text-white">DATA SCIENTIST</span>
+            <span className="text-white">SOFTWARE</span>
             <br />
-            <span className="text-white">AND A SOFTWARE</span>
+            <span className="text-white">ENGINEER AND DATA</span>
             <br />
-            <span className="text-brand-green">ENGINEER</span>
+            <span className="text-brand-green">SCIENTIST</span>
           </h1>
 
           {/* Description */}

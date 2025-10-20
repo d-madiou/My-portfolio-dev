@@ -214,3 +214,140 @@ export const MenuIcon: React.FC<{ className?: string; isOpen?: boolean }> = ({ c
     />
   </svg>
 )
+
+// --- Placeholder Icon for General Tech/Settings (e.g., Next.js, Django, Tailwind) ---
+/**
+ * A generic Gear icon often used for settings or technology.
+ */
+export const TechGearIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <circle cx="12" cy="12" r="3" />
+    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33h.09A1.65 1.65 0 0 0 12 4.6l.09-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+  </svg>
+);
+
+// --- Placeholder Icon for Databases/Backend (e.g., Postgres, MySQL, Supabase, Prisma) ---
+/**
+ * A generic Server/Database icon.
+ */
+export const DatabaseIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect width="20" height="8" x="2" y="2" rx="2" ry="2" />
+    <rect width="20" height="8" x="2" y="14" rx="2" ry="2" />
+    <line x1="6" x2="6" y1="6" y2="6" />
+    <line x1="6" x2="6" y1="18" y2="18" />
+  </svg>
+);
+
+// --- Text-Based Placeholders for Logos (Most Replicable) ---
+/**
+ * A text-based icon placeholder for quick identification.
+ * Use the className to style the text size and color.
+ */
+import { 
+  Code2, 
+  Palette, 
+  Database, 
+  Zap, 
+  Lock, 
+  Smartphone,
+  Sheet,
+  BarChart3
+} from 'lucide-react';
+
+export const NextJSIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <Code2 className={className} />
+);
+
+export const DjangoIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <Code2 className={className} />
+);
+
+export const FigmaIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <Palette className={className} />
+);
+
+export const TailwindCSSIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" stroke="#ffffff">
+    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+    <g id="SVGRepo_iconCarrier">
+      <title>file_type_tailwind</title>
+      <path
+        d="M9,13.7q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q11.1,10.9,9,13.7ZM2,22.1q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q4.1,19.3,2,22.1Z"
+        style={{ fill: '#44a8b3' }}
+      />
+    </g>
+  </svg>
+);
+
+export const ShadcnIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <Code2 className={className} />
+);
+
+export const PrismaIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <Database className={className} />
+);
+
+export const ReduxIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <Zap className={className} />
+);
+
+export const PostgreSQLIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <Database className={className} />
+);
+
+export const SupabaseIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <Database className={className} />
+);
+
+export const ClerkIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <Lock className={className} />
+);
+
+export const ReactNativeIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <Smartphone className={className} />
+);
+
+export const MySQLIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <Database className={className} />
+);
+
+export const FlaskIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <Code2 className={className} />
+);
+
+export const PowerBIIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <BarChart3 className={className} />
+);
+
+export const GoogleSheetIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <Sheet className={className} />
+);
+
+export const PandasIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <Sheet className={className} />
+);
+
+export const NumPyIcon: React.FC<{ className?: string }> = ({ className }) => (
+  <Code2 className={className} />
+);
+

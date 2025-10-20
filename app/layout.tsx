@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Artistic - Creative Portfolio",
+  title: "Thierno.dev portfolio",
   description: "Bringing your ideas to life creatively.",
 };
 
