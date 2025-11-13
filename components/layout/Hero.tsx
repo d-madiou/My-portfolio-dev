@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
       {/* Animated Background Pattern */}
       <div className="absolute inset-0 opacity-20 pointer-events-none overflow-hidden">
         <div
-          className="absolute inset-0 animate-movePattern mix-blend-overlay"
+          className="absolute inset-0 mix-blend-overlay"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23AFFF00' strokeWidth='1.2'%3E%3Ccircle cx='15' cy='15' r='2'/%3E%3Ccircle cx='90' cy='15' r='2'/%3E%3Ccircle cx='165' cy='15' r='2'/%3E%3Ccircle cx='15' cy='90' r='2'/%3E%3Ccircle cx='90' cy='90' r='2'/%3E%3Ccircle cx='165' cy='90' r='2'/%3E%3Ccircle cx='15' cy='165' r='2'/%3E%3Ccircle cx='90' cy='165' r='2'/%3E%3Ccircle cx='165' cy='165' r='2'/%3E%3Cpath d='M0 45 L30 15 L60 45 L90 15 L120 45 L150 15 L180 45'/%3E%3Cpath d='M0 135 L30 165 L60 135 L90 165 L120 135 L150 165 L180 135'/%3E%3C/g%3E%3C/svg%3E")`,
             backgroundSize: "180px 180px",

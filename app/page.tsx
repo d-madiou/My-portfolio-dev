@@ -7,8 +7,9 @@ import { ModeToggle } from "@/components/theme/mode-toggle";
 import Header from "@/components/layout/Header";
 import Hero from "@/components/layout/Hero";
 import Marquee from "@/components/layout/Marque";
-import AboutUs from "@/components/layout/About";
 import Services from "@/components/layout/Services";
+import AboutSection from "@/components/layout/About";
+import SkillsSection from "@/components/layout/Services";
 // import Marquee from "@/components/Marquee";
 // import About from "@/components/About";
 // import Services from "@/components/Services";
@@ -23,8 +24,8 @@ export default function Home() {
       <Header />
       <Hero />
       <Marquee />
-      <AboutUs />
-      <Services />
+      <AboutSection />
+      <SkillsSection />
     </main>
   );
 }

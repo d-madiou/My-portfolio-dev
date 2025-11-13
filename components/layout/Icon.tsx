@@ -159,37 +159,7 @@ export const ReactIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
-export const NodeJSIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg {...props} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 2l-11 6.5v13L16 28l11-6.5v-13L16 2z" fill="#339933"/>
-    <path d="M16 2v26l11-6.5v-13L16 2z" fill="#5FA04E"/>
-    <path d="M16 10.5l-5.5 3.25v6.5L16 23.5l5.5-3.25v-6.5L16 10.5z" fill="#FFF"/>
-  </svg>
-);
 
-export const PythonIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg {...props} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="pythonGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#387EB8"/>
-        <stop offset="100%" stopColor="#366994"/>
-      </linearGradient>
-      <linearGradient id="pythonGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#FFE873"/>
-        <stop offset="100%" stopColor="#FFD43B"/>
-      </linearGradient>
-    </defs>
-    <path d="M15.885 2.1c-7.1 0-6.651 3.07-6.651 3.07v3.19h6.752v1h-9.441S2 8.8 2 15.9s3.65 6.85 3.65 6.85h2.175v-3.05s-.131-3.65 3.6-3.65h6.65s3.45.056 3.45-3.35v-6.5c0 0 .482-3.25-5.64-3.25zm-3.71 1.83c.66 0 1.2.54 1.2 1.2s-.54 1.2-1.2 1.2-1.2-.54-1.2-1.2.54-1.2 1.2-1.2z" fill="url(#pythonGradient1)"/>
-    <path d="M16.115 29.9c7.1 0 6.651-3.07 6.651-3.07v-3.19h-6.751v-1h9.441S30 23.2 30 16.1s-3.65-6.85-3.65-6.85h-2.175v3.05s.131 3.65-3.6 3.65h-6.65s-3.45-.056-3.45 3.35v6.5c0 0-.482 3.25 5.64 3.25zm3.71-1.83c-.66 0-1.2-.54-1.2-1.2s.54-1.2 1.2-1.2 1.2.54 1.2 1.2-.54 1.2-1.2 1.2z" fill="url(#pythonGradient2)"/>
-  </svg>
-);
-
-export const TypeScriptIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg {...props} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="32" height="32" rx="3" fill="#3178C6"/>
-    <path d="M18.5 21.5h2.25v1h-5.5v-1h2.25v-7h-2.25v-1h5.5v1h-2.25v7zm3.75-8v1h3.5c.275 0 .5.225.5.5v4c0 .275-.225.5-.5.5h-3.5v1h4c.825 0 1.5-.675 1.5-1.5v-4c0-.825-.675-1.5-1.5-1.5h-4zm-13 1.5v-1h5.5v1h-2v7h-1.5v-7h-2z" fill="#FFF"/>
-  </svg>
-);
 
 export const GithubIcon: React.FC<{ className?: string }> = ({ className }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -273,31 +243,10 @@ import {
   BarChart3
 } from 'lucide-react';
 
-export const NextJSIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <Code2 className={className} />
-);
-
 export const DjangoIcon: React.FC<{ className?: string }> = ({ className }) => (
   <Code2 className={className} />
 );
 
-export const FigmaIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <Palette className={className} />
-);
-
-export const TailwindCSSIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="#ffffff" stroke="#ffffff">
-    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
-    <g id="SVGRepo_iconCarrier">
-      <title>file_type_tailwind</title>
-      <path
-        d="M9,13.7q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q11.1,10.9,9,13.7ZM2,22.1q1.4-5.6,7-5.6c5.6,0,6.3,4.2,9.1,4.9q2.8.7,4.9-2.1-1.4,5.6-7,5.6c-5.6,0-6.3-4.2-9.1-4.9Q4.1,19.3,2,22.1Z"
-        style={{ fill: '#44a8b3' }}
-      />
-    </g>
-  </svg>
-);
 
 export const ShadcnIcon: React.FC<{ className?: string }> = ({ className }) => (
   <Code2 className={className} />
@@ -311,9 +260,6 @@ export const ReduxIcon: React.FC<{ className?: string }> = ({ className }) => (
   <Zap className={className} />
 );
 
-export const PostgreSQLIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <Database className={className} />
-);
 
 export const SupabaseIcon: React.FC<{ className?: string }> = ({ className }) => (
   <Database className={className} />
@@ -323,17 +269,11 @@ export const ClerkIcon: React.FC<{ className?: string }> = ({ className }) => (
   <Lock className={className} />
 );
 
-export const ReactNativeIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <Smartphone className={className} />
-);
-
 export const MySQLIcon: React.FC<{ className?: string }> = ({ className }) => (
   <Database className={className} />
 );
 
-export const FlaskIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <Code2 className={className} />
-);
+
 
 export const PowerBIIcon: React.FC<{ className?: string }> = ({ className }) => (
   <BarChart3 className={className} />
@@ -343,11 +283,142 @@ export const GoogleSheetIcon: React.FC<{ className?: string }> = ({ className })
   <Sheet className={className} />
 );
 
+
+
+export const CodeIcon: React.FC<{ className?: string }> = ({ className = 'w-6 h-6' }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 12" />
+  </svg>
+);
+
+export const BrainIcon: React.FC<{ className?: string }> = ({ className = 'w-6 h-6' }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z" />
+  </svg>
+);
+
+export const LayersIcon: React.FC<{ className?: string }> = ({ className = 'w-6 h-6' }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={className}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M6.115 5.19 2.86 3.22a.75.75 0 0 1 0-1.342l3.255-1.968a.75.75 0 0 1 .75 0l3.255 1.968a.75.75 0 0 1 0 1.342l-3.255 1.968a.75.75 0 0 1-.75 0ZM12.75 5.19l-3.255-1.968a.75.75 0 0 1 0-1.342L12.75 0l3.255 1.968a.75.75 0 0 1 0 1.342L12.75 5.19ZM6.115 12.78l-3.255-1.968a.75.75 0 0 1 0-1.342l3.255-1.968a.75.75 0 0 1 .75 0l3.255 1.968a.75.75 0 0 1 0 1.342l-3.255 1.968a.75.75 0 0 1-.75 0Zm6.635 0-3.255-1.968a.75.75 0 0 1 0-1.342l3.255-1.968a.75.75 0 0 1 .75 0l3.255 1.968a.75.75 0 0 1 0 1.342l-3.255 1.968a.75.75 0 0 1-.75 0Zm-6.635 7.59-3.255-1.968a.75.75 0 0 1 0-1.342l3.255-1.968a.75.75 0 0 1 .75 0l3.255 1.968a.75.75 0 0 1 0 1.342l-3.255 1.968a.75.75 0 0 1-.75 0Zm6.635 0-3.255-1.968a.75.75 0 0 1 0-1.342l3.255-1.968a.75.75 0 0 1 .75 0l3.255 1.968a.75.75 0 0 1 0 1.342l-3.255 1.968a.75.75 0 0 1-.75 0Z" />
+  </svg>
+);
+
+export const NextJSIcon: React.FC<{ className?: string }> = ({ className }) => (
+    <svg className={className} viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M64 128C99.3462 128 128 99.3462 128 64C128 28.6538 99.3462 0 64 0C28.6538 0 0 28.6538 0 64C0 99.3462 28.6538 128 64 128Z" fill="black"/>
+        <path d="M82.1712 48.2325L46.8013 90.5526V41.7676H54.6723V77.1725L86.2238 41.7676H94.0825V90.5526H86.2113V55.1826L50.8413 97.4676H42.995V34.9176H90.135V48.2325H82.1712Z" fill="white"/>
+    </svg>
+);
+export const TypeScriptIcon: React.FC<{ className?: string }> = ({ className }) => (
+    <svg className={className} viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="128" height="128" rx="32" fill="#3178C6"/>
+        <path d="M52.32 89.6V44H62.56L71.44 67.84H71.68L80.56 44H90.8V89.6H82.48V53.44H82.24L74.8 73.84H68.32L60.88 53.44H60.72V89.6H52.32ZM36 67.6C36 61.6 38.64 57.52 42.96 55.36V46.96C39.68 48.72 37.04 52.48 37.04 57.04V60.4H50.56V67.04C50.56 74.56 44.8 78.88 37.12 78.88C33.28 78.88 30.16 77.28 28 74.8L33.28 70.24C34.4 71.36 35.68 72 37.12 72C40.64 72 42.56 70.4 42.56 67.36V67.04H36V67.6Z" fill="white"/>
+    </svg>
+);
+export const TailwindCSSIcon: React.FC<{ className?: string }> = ({ className }) => (
+    <svg className={className} fill="none" viewBox="0 0 54 33" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.5 0C6.042 0 0 6.042 0 13.5S6.042 27 13.5 27c3.434 0 6.556-1.288 8.95-3.385.34-.302.55-.73.55-1.18V13.5c0-1.86 1.27-3.456 3-3.928C26.347 9.405 27 8.262 27 7.027V3.375C27 1.512 25.488 0 23.625 0h-10.125Zm27 0c-7.458 0-13.5 6.042-13.5 13.5s6.042 13.5 13.5 13.5c3.434 0 6.556-1.288 8.95-3.385.34-.302.55-.73.55-1.18V13.5c0-1.86 1.27-3.456 3-3.928.347-.167.52-.573.52-.973V3.375C54 1.512 52.488 0 50.625 0H40.5Z" fill="currentColor"/>
+    </svg>
+);
+export const ViteIcon: React.FC<{ className?: string }> = ({ className }) => (
+    <svg className={className} fill="none" viewBox="0 0 256 257" xmlns="http://www.w3.org/2000/svg">
+        <path d="m128 .5c-16.51 0-32.22 3.2-46.72 9.42-37.1 15.86-63.46 49.3-71.55 89.26C2.24 134.4 0 169.56 0 205.5c0 14.93 12.07 27 27 27h15.93c14.12 0 26.04-10.74 27.87-24.63 1.04-7.85 5-15.01 10.7-19.82 12.55-10.59 28.3-16.05 45.5-16.05s32.95 5.46 45.5 16.05c5.7 4.81 9.66 11.97 10.7 19.82C184.03 221.76 195.95 232.5 210.07 232.5h18.93c14.93 0 27-12.07 27-27v-1.82c0-54.08-30.91-100.35-74.72-120.75C168.1.91 148.45.5 128 .5Z" fill="url(#a)"/>
+        <path d="m202.2 131.78-95.21 95.21c-4.48 4.48-11.83 4.42-16.24-.13l-45.96-48.4c-4-4.22-3.8-10.89.4-14.9l80.24-74.85c5.03-4.69 12.87-4.14 17.15.93l60.1 71.19c3.92 4.64 3.46 11.23-.98 15.39l-.54.46Z" fill="url(#b)"/>
+        <defs>
+            <linearGradient id="a" x1="128" x2="128" y1="0.5" y2="256.5" gradientUnits="userSpaceOnUse"><stop stop-color="#41D1FF"/><stop offset="1" stop-color="#BD34FE"/></linearGradient>
+            <linearGradient id="b" x1="122" x2="164.18" y1="110.15" y2="242.4" gradientUnits="userSpaceOnUse"><stop stop-color="#FFEA83"/><stop offset=".08" stop-color="#FFDD35"/><stop offset="1" stop-color="#FFA800"/></linearGradient>
+        </defs>
+    </svg>
+);
+export const FigmaIcon: React.FC<{ className?: string }> = ({ className }) => (
+    <svg className={className} fill="none" viewBox="0 0 40 60" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 20a10 10 0 0 1 10-10h10v10a10 10 0 0 1-10 10H20Z" fill="#0ACF83"/>
+        <path d="M10 20a10 10 0 0 1 10-10h10v20H20a10 10 0 0 1-10-10Z" fill="#A259FF"/>
+        <path d="M10 40a10 10 0 1 1 20 0v10H20a10 10 0 0 1-10-10Z" fill="#F24E1E"/>
+        <path d="M10 20a10 10 0 0 0 10 10h10V20H10Z" fill="#FF7262"/>
+        <circle cx="20" cy="50" r="10" fill="#1ABCFE"/>
+    </svg>
+);
+export const ReactNativeIcon = ReactIcon;
+export const NodeJSIcon: React.FC<{ className?: string }> = ({ className }) => (
+    <svg className={className} viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M128 0L242.5 66.95V200.85L128 267.8L13.5 200.85V66.95L128 0Z" fill="#8CC84B"/>
+        <path d="M128 25.4L22.9 74.6V191.6L128 240.8L233.1 191.6V74.6L128 25.4Z" fill="#43853D"/>
+        <path d="M171.748 102.771L163.132 107.82C160.899 109.213 160.75 111.411 161.464 113.19C162.24 115.118 164.295 116.126 166.446 115.48L179.916 111.455C179.67 122.998 174.522 131.789 162.24 139.882C149.202 148.514 133.024 152.022 119.831 151.774V140.71C133.633 140.71 143.727 137.284 150.322 133.199C156.918 129.114 159.284 123.635 159.284 117.935V96.7915L111.751 123.118C109.111 124.593 107.056 123.67 106.138 121.224C105.32 118.821 106.331 116.623 108.564 115.23L117.18 110.181C119.413 108.788 119.562 106.59 118.848 104.811C118.072 102.883 116.017 101.875 113.866 102.521L100.396 106.546C100.642 95.003 105.79 86.2119 118.072 78.1188C130.354 70.0257 146.532 66.5178 159.725 66.7656V77.831C145.923 77.831 135.829 81.2571 129.234 85.3421C122.638 89.4271 120.272 94.9064 120.272 100.606V121.75L167.805 95.4234C170.445 93.9488 172.5 94.8717 173.418 97.3175C174.336 99.7204 173.325 101.918 171.135 103.311L171.748 102.771Z" fill="#FFFFFF"/>
+    </svg>
+);
+export const PythonIcon: React.FC<{ className?: string }> = ({ className }) => (
+    <svg className={className} viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M93.3333 13.3333H162.667C186.267 13.3333 205.333 32.4 205.333 56V60.6667C205.333 69.8667 198.2 77.3333 188.667 77.3333H84C56.9333 77.3333 34.6667 99.6 34.6667 126.667V132C34.6667 151.067 49.6 166.667 68.6667 166.667H172V56C172 49.3733 166.96 44 160.667 44H93.3333C87.04 44 82.6667 48.7067 82.6667 54.6667V109.333H104C111.4 109.333 118.133 112.4 122.667 117.333C127.2 122.267 129.333 129.2 129.333 136.667V200C129.333 206.627 134.373 212 140.667 212H162.667C186.267 212 205.333 192.933 205.333 169.333V164.667C205.333 155.467 212.467 148 222 148H172C144.933 148 122.667 125.733 122.667 98.6667V94.3333C122.667 75.2667 107.733 59.3333 88.6667 59.3333H93.3333V13.3333Z" fill="#3776AB"/>
+        <path d="M162.667 242.667H93.3333C69.7333 242.667 50.6667 223.6 50.6667 200V195.333C50.6667 186.133 57.8 178.667 67.3333 178.667H172C199.067 178.667 221.333 156.4 221.333 129.333V124C221.333 104.933 206.4 89.3333 187.333 89.3333H84V200C84 206.627 89.04 212 95.3333 212H162.667C168.96 212 173.333 207.293 173.333 201.333V146.667H152C144.6 146.667 137.867 143.6 133.333 138.667C128.8 133.733 126.667 126.8 126.667 119.333V56C126.667 49.3733 121.627 44 115.333 44H93.3333C69.7333 44 50.6667 63.0667 50.6667 86.6667V91.3333C50.6667 100.533 43.5333 108 34 108H84C111.067 108 133.333 130.267 133.333 157.333V161.667C133.333 180.733 148.267 196.667 167.333 196.667H162.667V242.667Z" fill="#FFC331"/>
+    </svg>
+);
+export const FlaskIcon: React.FC<{ className?: string }> = ({ className }) => (
+    <svg className={className} fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21.16,6.32,18,3.16,16.59,4.58l3.16,3.16ZM12,2a10,10,0,0,0-9.8,11.59l-1.6,1.59L2,16.59l1.59-1.59A10,10,0,1,0,12,2Zm0,18a8,8,0,0,1-7.89-6.71.51.51,0,0,1,.5-.55H19.39a.51.51,0,0,1,.5.55A8,8,0,0,1,12,20Z"/>
+    </svg>
+);
+export const DockerIcon: React.FC<{ className?: string }> = ({ className }) => (
+    <svg className={className} viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M246.667 112C244.533 80.5333 221.867 56.5333 192 53.3333C184.533 34.1333 166.4 20.8 144 19.2C116.8 16.5333 93.3333 34.1333 85.3333 58.1333C83.2 57.6 81.0667 57.6 78.9333 57.6C54.4 57.6 34.1333 77.8667 34.1333 102.4C34.1333 104.533 34.1333 106.667 34.6667 108.8H34.1333C14.9333 108.8 0 123.733 0 142.933C0 161.067 13.3333 176 31.4667 176H56.5333V148.8H42.6667V132.8H70.9333V148.8H56.5333V176H234.667C246.933 176 256 166.933 256 154.667C256 138.667 253.333 124.267 246.667 112Z" fill="#2496ED"/>
+        <rect x="42.6667" y="71.4667" width="28.2667" height="17.0667" rx="4.26667" fill="white"/>
+        <rect x="76.8" y="71.4667" width="28.2667" height="17.0667" rx="4.26667" fill="white"/>
+        <rect x="110.933" y="71.4667" width="28.2667" height="17.0667" rx="4.26667" fill="white"/>
+        <rect x="145.067" y="71.4667" width="28.2667" height="17.0667" rx="4.26667" fill="white"/>
+        <rect x="42.6667" y="94.4" width="28.2667" height="17.0667" rx="4.26667" fill="white"/>
+    </svg>
+);
+export const PostgreSQLIcon: React.FC<{ className?: string }> = ({ className }) => (
+    <svg className={className} viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M110.435 128H85.4783V95.0435C85.4783 89.5652 83.2174 86.8261 77.6522 86.8261H56.4348V128H31.4783V0H77.6522C92.4348 0 101.826 6.17391 101.826 19.3913C101.826 28.5217 96.2609 34.6087 88.4783 37.1304C99.5652 39.4783 110.435 47.6522 110.435 62.4348V128ZM77.6522 57.6522C85.6522 57.6522 89.6522 53.6522 89.6522 45.6522C89.6522 37.6522 85.6522 33.6522 77.6522 33.6522H56.4348V57.6522H77.6522Z" fill="#336791"/>
+    </svg>
+);
+export const GoogleCloudIcon: React.FC<{ className?: string }> = ({ className }) => (
+    <svg className={className} viewBox="0 0 174 121" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M125.753 58.3333C125.753 87.9733 101.66 112 72.0869 112C42.514 112 18.4211 87.9733 18.4211 58.3333C18.4211 28.6933 42.514 4.66666 72.0869 4.66666" fill="#4285F4"/>
+        <path d="M125.753 58.3333C125.753 87.9733 110.151 114.333 90.177 120.667C70.2032 127 48.3197 121.333 33.4355 107.333C18.5513 93.3333 10.6044 73.6667 11.3219 54C12.0394 34.3333 21.4744 16.3333 36.3586 7.33332C51.2428 -1.66668 70.2032 -2.33334 87.2672 5.33332C104.331 13 119.215 28.6933 125.753 46.3333" fill="#EA4335"/>
+        <path d="M129.339 0C108.648 4.66666 90.8947 18.3333 81.4597 36C82.8947 16.3333 95.7095 -1.66668 114.67 0.666656C133.63 3 -0.625816 77.3333 24.524 71.6667C49.6738 66 150.756 16.3333 129.339 0Z" fill="#FBBC05"/>
+        <path d="M165.733 46.3333C158.477 31.6667 146.331 19.3333 131.447 12C143.592 18.3333 152.31 30 153.027 43.3333C153.745 56.6667 146.331 69 134.364 75C122.397 81 107.513 79.3333 96.9846 71.6667C86.4566 64 80.7421 51.6667 82.1771 39.3333C82.8947 31.6667 86.4566 24.3333 90.8947 18.3333C77.0195 24.3333 65.0524 36 60.6143 50C56.1762 64 57.6112 79.3333 64.3223 91.3333C71.0333 103.3333 82.1771 111.333 95.5395 113C108.902 114.667 122.995 109.333 132.43 100C141.865 90.6667 148.576 78.3333 149.294 64.6667C150.011 51 174.104 58.3333 165.733 46.3333Z" fill="#34A853"/>
+    </svg>
+);
+export const TensorFlowIcon: React.FC<{ className?: string }> = ({ className }) => (
+    <svg className={className} viewBox="0 0 109 124" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3,34.55,29.35,19.8,55.69,34.55V64L3,93.46Z" fill="#FF8F00"/>
+        <path d="M55.69,34.55,82,19.8,108.35,34.55V64L55.69,93.46Z" fill="#FFA000"/>
+        <path d="M3,64V93.46L29.35,108.21V78.75Z" fill="#FF6F00"/>
+        <path d="M82,78.75v29.46L108.35,93.46V64Z" fill="#FFB300"/>
+        <path d="M55.69,0,3,19.8V3.41Z" fill="#F57C00"/>
+        <path d="M55.69,123.08,82,108.21,108.35,93.46V109.87Z" fill="#FFE082"/>
+        <path d="M55.69,0,82,16.39V0Z" fill="#FFC107"/>
+        <path d="m29.35,19.8 26.34,14.75V64L29.35,49.25Z" fill="#FFF3E0"/>
+        <path d="m82,19.8-26.31,14.75V64L82,49.25Z" fill="#FFE0B2"/>
+    </svg>
+);
+export const PyTorchIcon: React.FC<{ className?: string }> = ({ className }) => (
+    <svg className={className} fill="none" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+        <path d="M228.667 96.6578C222.84 96.5333 217.138 94.6133 212.187 91.2444C201.244 83.84 195.969 71.3778 195.213 58.2133C194.227 41.3422 201.782 25.4311 214.938 15.3422C218.498 12.5956 222.587 10.6756 226.907 9.8C229.956 9.15556 233.129 9.15556 236.178 9.92C237.289 10.2222 237.933 11.4578 237.404 12.5689L229.476 34.0267C229.071 35.0133 227.96 35.5422 226.907 35.1378C224.231 34.0267 221.431 33.6489 218.756 34.1511C211.573 35.4222 206.533 41.1244 206.409 48.4311C206.284 55.7378 210.88 61.9689 217.911 63.3644C220.587 63.8667 223.387 63.4889 226.062 62.3778C227.116 61.9022 228.351 62.2756 228.782 63.2622L237.529 84.72C238.058 85.8311 237.529 87.0667 236.418 87.4444C232.858 88.84 229.067 89.4844 225.276 89.2533L225.276 89.2533C225.276 102.542 216.782 113.898 205.187 116.773C193.591 119.649 181.244 113.773 175.738 103.387C175.196 102.4 173.96 101.902 172.933 102.4L151.476 113.898C150.449 114.427 150.071 115.662 150.613 116.649C158.293 129.436 171.329 137.64 185.831 137.764H186.204C208.667 137.236 225.911 119.244 228.667 96.6578Z" fill="#EE4C2C"/>
+        <path d="M27.3333 159.342C33.16 159.467 38.8622 161.387 43.8133 164.756C54.7556 172.16 60.0311 184.622 59.2756 197.787C58.2889 214.658 50.8444 230.569 37.6889 240.658C34.1289 243.404 30.04 245.324 25.72 246.2C22.6711 246.844 19.4978 246.844 16.4489 246.08C15.3378 245.778 14.6933 244.542 15.2222 243.431L23.1511 221.973C23.5556 220.987 24.6667 220.458 25.72 220.862C28.3956 221.973 31.1956 222.351 33.8711 221.849C41.0533 220.578 46.0933 214.876 46.2178 207.569C46.3422 200.262 41.7467 194.031 34.7156 192.636C32.04 192.133 29.24 192.511 26.5644 193.622C25.5111 194.098 24.2756 193.724 23.8444 192.738L15.0978 171.28C14.5689 170.169 15.0978 168.933 16.2089 168.556C19.7689 167.16 23.56 166.516 27.3511 166.747L27.3333 159.342Z" fill="#EE4C2C"/>
+    </svg>
+);
 export const PandasIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <Sheet className={className} />
+    <svg className={className} fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+        <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm-8,40a20,20,0,1,1-20,20A20,20,0,0,1,120,64Zm56,104a20,20,0,1,1,20-20A20,20,0,0,1,176,168Z"/>
+        <path d="M120,104H88a8,8,0,0,0,0,16h32a8,8,0,0,0,0-16Z"/>
+        <path d="M168,104h-8a8,8,0,0,0,0,16h8a8,8,0,0,0,0-16Z"/>
+        <path d="M120,144H88a8,8,0,0,0,0,16h32a8,8,0,0,0,0-16Z"/>
+        <path d="M168,144h-8a8,8,0,0,0,0,16h8a8,8,0,0,0,0-16Z"/>
+    </svg>
 );
-
 export const NumPyIcon: React.FC<{ className?: string }> = ({ className }) => (
-  <Code2 className={className} />
+    <svg className={className} viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M135.834 53.0567V125.438H202.943V53.0567H135.834Z" fill="#4D77CF"/>
+        <path d="M53.0566 130.562V202.943H120.166V130.562H53.0566Z" fill="#FFD43B"/>
+        <path d="M135.834 130.562L120.166 146.231V130.562H135.834Z" fill="#4D77CF"/>
+        <path d="M135.834 130.562L53.0566 213.339H68.7252L135.834 146.231V130.562Z" fill="#4D77CF"/>
+        <path d="M135.834 130.562H218.611L135.834 47.7842V130.562Z" fill="#4D77CF"/>
+    </svg>
 );
 
+export const SparkleIcon: React.FC<{ className?: string }> = ({ className }) => (
+    <svg className={className} viewBox="0 0 256 2 256" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
+);

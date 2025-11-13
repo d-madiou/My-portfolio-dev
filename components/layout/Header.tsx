@@ -2,6 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
+import { ModeToggle } from "../theme/mode-toggle"
 import { LogoIcon, XIcon, FacebookIcon, InstagramIcon, ChevronDownIcon, GithubIcon, LinkedInIcon} from "./Icon"
 
 const NavItem: React.FC<{ children: React.ReactNode; hasDropdown?: boolean }> = ({ children, hasDropdown }) => (
@@ -68,6 +69,7 @@ const Header: React.FC = () => {
           <SocialIcon label="LinkedIn">
             <LinkedInIcon className="h-5 w-5" />
           </SocialIcon>
+          <ModeToggle />
 
           </div>
 
@@ -94,7 +96,7 @@ const Header: React.FC = () => {
             <nav className="flex flex-col gap-2">
               <NavItem>Home</NavItem>
               <NavItem>About Me</NavItem>
-              <NavItem>Services</NavItem>
+              <NavItem>Tutorials</NavItem>
               <NavItem>Projects</NavItem>
               <NavItem hasDropdown>Blogs</NavItem>
               <NavItem>Contact Me</NavItem>
@@ -109,6 +111,9 @@ const Header: React.FC = () => {
                 <SocialIcon label="Instagram">
                   <InstagramIcon className="h-5 w-5" />
                 </SocialIcon>
+                <div className="ml-auto">
+                  <ModeToggle />
+                </div>
               </div>
             </nav>
           </div>
