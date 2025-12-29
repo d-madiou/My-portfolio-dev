@@ -1,50 +1,66 @@
 import type React from "react"
 
 const MarqueeItem: React.FC<{ text: string }> = ({ text }) => (
-  <div className="flex items-center mx-6">
-    <span className="text-brand-green text-2xl font-bold mx-4">*</span>
-    <span className="text-xl lg:text-2xl font-semibold uppercase tracking-wider">{text}</span>
+  <div className="flex items-center mx-8 group cursor-default">
+    <span className="text-brand-green text-xl mx-8 animate-pulse">✦</span>
+    <span className="text-4xl lg:text-5xl font-bold uppercase tracking-tighter text-white/20 group-hover:text-white/90 transition-colors duration-500">
+      {text}
+    </span>
   </div>
 )
 
 const Marquee: React.FC = () => {
-  const items = ["Software Engineering", "Web Design & Development", "Graphic Design", "Data Analysis", "Power BI"]
+  const items = [
+    "Software Engineering", 
+    "Data Science", 
+    "Web Development", 
+    "UI/UX Design", 
+    "System Architecture",
+    "Machine Learning"
+  ]
 
   return (
-    <div className="bg-brand-green py-6 overflow-hidden relative">
-      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-brand-black to-transparent z-10 pointer-events-none" />
+    <div className="relative py-12 border-y border-white/5 bg-black/20 backdrop-blur-sm overflow-hidden z-20">
+      
+      {/* CSS Mask for the fade effect on edges - works on any background */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-10"
+        style={{
+          background: 'transparent',
+          maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)'
+        }}
+      />
 
-      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-brand-black to-transparent z-10 pointer-events-none" />
-
-      <div className="relative flex whitespace-nowrap text-black">
-        <div className="animate-marquee flex">
+      <div className="relative flex whitespace-nowrap overflow-hidden">
+        {/* We duplicate the loops to ensure seamless infinite scrolling without gaps */}
+        <div className="flex animate-marquee will-change-transform">
           {items.map((item, index) => (
-            <MarqueeItem key={index} text={item} />
+            <MarqueeItem key={`a-${index}`} text={item} />
           ))}
         </div>
-        <div className="animate-marquee2 absolute top-0 flex">
+        <div className="flex animate-marquee will-change-transform" aria-hidden="true">
           {items.map((item, index) => (
-            <MarqueeItem key={index + items.length} text={item} />
+            <MarqueeItem key={`b-${index}`} text={item} />
+          ))}
+        </div>
+        <div className="flex animate-marquee will-change-transform" aria-hidden="true">
+          {items.map((item, index) => (
+            <MarqueeItem key={`c-${index}`} text={item} />
           ))}
         </div>
       </div>
 
-      <style>{`
+      {/* Animation Styles */}
+      <style dangerouslySetInnerHTML={{__html: `
         @keyframes marquee {
           0% { transform: translateX(0%); }
           100% { transform: translateX(-100%); }
         }
-        @keyframes marquee2 {
-          0% { transform: translateX(100%); }
-          100% { transform: translateX(0%); }
-        }
         .animate-marquee {
-          animation: marquee 30s linear infinite;
+          animation: marquee 40s linear infinite;
         }
-        .animate-marquee2 {
-          animation: marquee2 30s linear infinite;
-        }
-      `}</style>
+      `}} />
     </div>
   )
 }

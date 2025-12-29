@@ -1,192 +1,302 @@
-import React, { useState, useEffect } from 'react';
-import { ABOUT_CONTENT } from '@/lib/constant';
-import type { InfoCardData } from '@/types/types';
+"use client"
 
-const InfoCard: React.FC<{
-  item: InfoCardData;
-}> = ({ item }) => {
+import React, { useState } from "react"
+import { CheckIcon } from "./Icon" // Assuming this exists based on your code
+import { ArrowDownIcon } from "lucide-react"
+
+// --- Types & Mock Data ---
+
+type TabType = 'overview' | 'experience' | 'education' | 'awards';
+
+interface InfoCardData {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+}
+
+// FAKE DATA STRUCTURE
+const TAB_DATA: Record<TabType, InfoCardData[]> = {
+  overview: [
+    {
+      id: "o1",
+      title: "Frontend Architecture",
+      description: "Crafting responsive, pixel-perfect UIs using React, Next.js, and Tailwind CSS with a focus on accessibility and performance.",
+      image: "https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+      id: "o2",
+      title: "Backend Systems",
+      description: "Designing robust APIs and microservices using Node.js, Go, and Python, ensuring scalability and security.",
+      image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+      id: "o3",
+      title: "Cloud Infrastructure",
+      description: "Deploying and managing containerized applications on AWS and DigitalOcean using Docker and Kubernetes.",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+      id: "o4",
+      title: "UI/UX Collaboration",
+      description: "Bridging the gap between design and code, working closely with designers to implement Figma prototypes accurately.",
+      image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=1000&auto=format&fit=crop"
+    }
+  ],
+  experience: [
+    {
+      id: "e1",
+      title: "Senior Full Stack Dev",
+      description: "TechCorp Inc. (2021 - Present). Led a team of 5 engineers to rebuild the legacy core platform, improving load times by 40%.",
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+      id: "e2",
+      title: "Frontend Engineer",
+      description: "Creative Agency (2019 - 2021). Developed award-winning interactive websites for Fortune 500 clients using WebGL and GSAP.",
+      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop"
+    },
+  ],
+  education: [
+    {
+      id: "edu1",
+      title: "M.S. Computer Science",
+      description: "Stanford University (2017-2019). Specialization in Artificial Intelligence and Human-Computer Interaction.",
+      image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+      id: "edu2",
+      title: "B.S. Software Engineering",
+      description: "MIT (2013-2017). Graduated Summa Cum Laude. Dean's List for 8 consecutive semesters.",
+      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1000&auto=format&fit=crop"
+    }
+  ],
+  awards: [
+    {
+      id: "a1",
+      title: "Hackathon Winner 2023",
+      description: "First place in the Global AI Hackathon for building an accessibility tool for visually impaired developers.",
+      image: "https://images.unsplash.com/photo-1569437061241-a848be43cc82?q=80&w=1000&auto=format&fit=crop"
+    },
+    {
+      id: "a2",
+      title: "Open Source Contributor",
+      description: "Recognized as a top contributor to the React ecosystem in 2022 for performance optimization libraries.",
+      image: "https://images.unsplash.com/photo-1607799275518-d58665d096cd?q=80&w=1000&auto=format&fit=crop"
+    }
+  ]
+}
+
+// --- Helper Components ---
+
+const TechPill: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <span className="px-3 py-1.5 bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/20 rounded text-xs font-mono text-brand-gray-light hover:text-white transition-colors cursor-default">
+    {children}
+  </span>
+)
+
+const StatBox: React.FC<{ label: string; value: string }> = ({ label, value }) => (
+  <div className="flex flex-col">
+    <span className="text-3xl font-bold text-white">{value}</span>
+    <span className="text-[10px] uppercase tracking-widest text-white/40 mt-1">{label}</span>
+  </div>
+)
+
+const SkillCard: React.FC<{ 
+  item: InfoCardData
+  isActive: boolean
+  onClick: () => void
+}> = ({ item, isActive, onClick }) => {
   return (
     <div
-      className="relative w-full h-full rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out group"
+      onClick={onClick}
+      className={`group relative h-full min-h-[280px] rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 border ${
+        isActive 
+          ? 'border-brand-green/50' 
+          : 'border-white/5 hover:border-white/20'
+      }`}
     >
-      <img 
-        src={typeof item.image === 'string' ? item.image : item.image.src} 
-        alt={item.title} 
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-        <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-        <p className="text-sm text-brand-gray-light leading-relaxed">
-          {item.description}
-        </p>
+      {/* Image Layer */}
+      <div className="absolute inset-0">
+        <img
+          src={item.image}
+          alt={item.title}
+          className={`w-full h-full object-cover transition-transform duration-1000 ${
+            isActive ? 'scale-110 opacity-40' : 'scale-100 opacity-20 group-hover:opacity-30'
+          }`}
+        />
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent" />
+      </div>
+
+      {/* Content Layer */}
+      <div className="relative h-full flex flex-col justify-end p-6">
+        <div className={`transition-all duration-300 ${isActive ? 'translate-y-0' : 'translate-y-2'}`}>
+          <div className="flex items-center justify-between mb-2">
+            <h3 className={`text-lg font-bold transition-colors ${
+              isActive ? 'text-white' : 'text-white/70'
+            }`}>
+              {item.title}
+            </h3>
+            {isActive && <CheckIcon className="w-5 h-5 text-brand-green animate-in zoom-in" />}
+          </div>
+          
+          <p className={`text-sm leading-relaxed text-brand-gray-light transition-opacity duration-300 ${
+            isActive ? 'opacity-100 line-clamp-none' : 'opacity-0 h-0 overflow-hidden'
+          }`}>
+            {item.description}
+          </p>
+        </div>
       </div>
     </div>
-  );
-};
+  )
+}
+
+// --- Main Component ---
 
 const AboutSection: React.FC = () => {
-  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const [activeTab, setActiveTab] = useState<TabType>('overview')
+  const [activeCardIndex, setActiveCardIndex] = useState(0)
 
-  useEffect(() => {
-    if (ABOUT_CONTENT.length > 1) {
-      const timer = setInterval(() => {
-        setCurrentCardIndex((prev) => (prev + 1) % ABOUT_CONTENT.length);
-      }, 7000);
-      return () => clearInterval(timer);
-    }
-  }, []);
+  // When tab changes, reset the active card to the first one
+  const handleTabChange = (tab: TabType) => {
+    setActiveTab(tab)
+    setActiveCardIndex(0)
+  }
 
-  const goToPreviousCard = () => {
-    setCurrentCardIndex((prev) => (prev - 1 + ABOUT_CONTENT.length) % ABOUT_CONTENT.length);
-  };
-
-  const goToNextCard = () => {
-    setCurrentCardIndex((prev) => (prev + 1) % ABOUT_CONTENT.length);
-  };
-
-  const currentCard = ABOUT_CONTENT[currentCardIndex];
-
-  const svgBg = `url("data:image/svg+xml,%3Csvg width='180' height='180' viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23A3FF12' strokeWidth='0.5'%3E%3Ccircle cx='15' cy='15' r='2'/%3E%3Ccircle cx='90' cy='15' r='2'/%3E%3Ccircle cx='165' cy='15' r='2'/%3E%3Ccircle cx='15' cy='90' r='2'/%3E%3Ccircle cx='90' cy='90' r='2'/%3E%3Ccircle cx='165' cy='90' r='2'/%3E%3Ccircle cx='15' cy='165' r='2'/%3E%3Ccircle cx='90' cy='165' r='2'/%3E%3Ccircle cx='165' cy='165' r='2'/%3E%3Cpath d='M0 45 L30 15 L60 45 L90 15 L120 45 L150 15 L180 45'/%3E%3Cpath d='M0 135 L30 165 L60 135 L90 165 L120 135 L150 165 L180 135'/%3E%3C/g%3E%3C/svg%3E")`;
+  // Get content based on active tab
+  const currentContent = TAB_DATA[activeTab]
 
   return (
-    <section className="w-full min-h-screen flex flex-col items-center justify-center p-4 lg:p-16 bg-brand-black relative">
-      <div
-        className="absolute inset-0 opacity-10 pointer-events-none"
-        style={{ backgroundImage: svgBg, backgroundSize: "180px 180px" }}
-      />
+    <section className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/5">
       
-      <div className="text-center mb-8 lg:mb-16 z-20">
-        <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
+      {/* Section Header */}
+      <div className="mb-16">
+        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
           About Me
-        </h1>
-        <p className="mt-2 text-brand-green text-lg">
-          Software Engineer & Data Scientist
+        </h2>
+        <p className="text-xl text-brand-gray-light max-w-3xl leading-relaxed">
+          I am a multidisciplinary developer bridging the gap between <span className="text-white">complex data</span> and <span className="text-white">human-centric interfaces</span>. My work is driven by the belief that software should be robust, scalable, and intuitive.
         </p>
       </div>
 
-      <div className="relative w-full flex-grow flex items-center justify-center">
-        {/* Mobile Layout */}
-        <div className="lg:hidden flex flex-col items-center gap-8 w-full max-w-md">
-          <div className="flex flex-col items-center text-center p-6 border-2 border-brand-green/30 rounded-full shadow-lg w-64 h-64 justify-center bg-brand-gray-dark/50 backdrop-blur-sm transition-all duration-500">
-            <img 
-              src={typeof currentCard.image === 'string' ? currentCard.image : currentCard.image.src} 
-              alt={currentCard.title} 
-              className="w-24 h-24 rounded-full border-4 border-slate-600 shadow-md object-cover transition-all duration-500" 
-            />
-            <h2 className="mt-4 text-xl font-bold text-white">Thierno Madiou</h2>
-            <p className="text-brand-gray-light text-sm">{currentCard.title}</p>
-          </div>
-
-          {/* Navigation Buttons for Mobile */}
-          <div className="flex justify-between w-full max-w-sm mt-4">
-            <button
-              onClick={goToPreviousCard}
-              className="p-2 rounded-full bg-brand-gray-dark/50 text-white hover:bg-brand-green hover:text-black transition-colors duration-300"
-              aria-label="Previous card"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" /></svg>
-            </button>
-            <button
-              onClick={goToNextCard}
-              className="p-2 rounded-full bg-brand-gray-dark/50 text-white hover:bg-brand-green hover:text-black transition-colors duration-300"
-              aria-label="Next card"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg></button>
-          </div>
-          
-          <div className="relative w-full max-w-sm h-72">
-            {ABOUT_CONTENT.map((item, index) => (
-              <div
-                key={item.id}
-                className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-                  index === currentCardIndex 
-                    ? 'opacity-100 transform-none z-10' 
-                    : 'opacity-0 transform translate-y-4 z-0'
-                }`}
-              >
-                <InfoCard item={item} />
-              </div>
-            ))}
-          </div>
-
-          <div className="flex gap-2">
-            {ABOUT_CONTENT.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentCardIndex(index)}
-                aria-label={`Go to slide ${index + 1}`}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === currentCardIndex 
-                    ? 'bg-brand-green w-6' 
-                    : 'bg-slate-600 hover:bg-slate-500'
-                }`}
-              />
-            ))}
-          </div>
-        </div>
+      <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
         
-        {/* Desktop Layout */}
-        <div className="hidden lg:flex w-full h-full items-center justify-center gap-16 xl:gap-24">
-          <div 
-            className="flex flex-col items-center text-center p-8 border-2 border-brand-green/30 rounded-full shadow-2xl shadow-brand-green/10 justify-center bg-brand-gray-dark/50 backdrop-blur-sm transition-all duration-500 hover:border-brand-green lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem]"
-          >
-            <img 
-              src={typeof currentCard.image === 'string' ? currentCard.image : currentCard.image.src}
-              alt="Alex Doe" 
-              className="rounded-full border-4 border-slate-600 shadow-xl object-cover transition-all duration-500 lg:w-48 lg:h-48 xl:w-56 xl:h-56" 
-            />
-            <h2 className="mt-4 text-2xl xl:text-3xl font-bold text-white">Thierno Madiou</h2>
-            <p className="text-brand-gray-light text-center max-w-xs mt-2 transition-opacity duration-500">{currentCard.title}</p>
-          </div>
+        {/* LEFT COLUMN: Profile "ID Card" (Sticky) */}
+        <div className="lg:col-span-4 lg:sticky lg:top-32 space-y-8">
           
-          {/* Navigation Buttons for Desktop */}
-          <div className="hidden lg:flex absolute left-0 right-0 top-1/2 -translate-y-1/2 justify-between w-full max-w-7xl px-4 z-30">
-            <button
-              onClick={goToPreviousCard}
-              className="p-3 rounded-full bg-brand-gray-dark/50 text-white hover:bg-brand-green hover:text-black transition-colors duration-300 shadow-lg"
-              aria-label="Previous card"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" /></svg>
-            </button>
-            <button
-              onClick={goToNextCard}
-              className="p-3 rounded-full bg-brand-gray-dark/50 text-white hover:bg-brand-green hover:text-black transition-colors duration-300 shadow-lg"
-              aria-label="Next card"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg></button>
+          <div className="p-6 sm:p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl">
+             {/* Avatar Area */}
+             <div className="flex items-center gap-5 mb-8">
+                <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-white/10">
+                   <img 
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=200&h=200"
+                      alt="Profile"
+                      className="w-full h-full object-cover" 
+                   />
+                </div>
+                <div>
+                   <h3 className="text-xl font-bold text-white">Thierno Madiou</h3>
+                   <div className="text-brand-green text-sm font-medium">Full Stack Engineer</div>
+                </div>
+             </div>
+
+             {/* Bio Data */}
+             <div className="space-y-6 text-sm text-brand-gray-light">
+                <p>
+                   Currently building scalable web applications and analyzing complex datasets to drive business decisions.
+                </p>
+                <div className="flex items-center gap-2">
+                   <span className="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
+                   <span className="text-white/80">Open to new opportunities</span>
+                </div>
+             </div>
+
+             {/* Stats Row */}
+             <div className="mt-8 pt-8 border-t border-white/10 grid grid-cols-2 gap-6">
+                <StatBox label="Years Exp." value="02+" />
+                <StatBox label="Projects" value="15+" />
+             </div>
+
+             {/* Action */}
+             <button className="mt-8 w-full py-3 bg-white hover:bg-brand-green text-black font-bold rounded transition-colors flex items-center justify-center gap-2 group">
+                Download Resume
+                <ArrowDownIcon className="w-4 h-4 transition-transform group-hover:translate-y-1" />
+             </button>
           </div>
 
-          <div className="relative lg:w-full lg:max-w-2xl lg:h-[30rem] xl:max-w-3xl xl:h-[34rem]">
-            {ABOUT_CONTENT.map((item, index) => (
-              <div
-                key={item.id}
-                className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-                  index === currentCardIndex 
-                    ? 'opacity-100 transform-none z-10' 
-                    : 'opacity-0 transform translate-x-8 z-0'
-                }`}
-                style={{ transitionDelay: index === currentCardIndex ? '150ms' : '0ms' }}
-              >
-                <InfoCard item={item} />
-              </div>
-            ))}
-            
-            <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 flex gap-2">
-              {ABOUT_CONTENT.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentCardIndex(index)}
-                  aria-label={`Go to slide ${index + 1}`}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                    index === currentCardIndex 
-                      ? 'bg-brand-green w-8' 
-                      : 'bg-slate-600 hover:bg-slate-500'
-                  }`}
-                />
-              ))}
+          {/* Core Tech Stack (Mobile: Hidden, Desktop: Visible) */}
+          <div className="hidden lg:block">
+            <h4 className="text-xs font-bold text-white/40 uppercase tracking-widest mb-4">Tech Stack</h4>
+            <div className="flex flex-wrap gap-2">
+               {['React', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'Go', 'AWS', 'Docker', 'PostgreSQL', 'Redis', 'TensorFlow', 'Figma'].map(tech => (
+                  <TechPill key={tech}>{tech}</TechPill>
+               ))}
             </div>
           </div>
+
+        </div>
+
+        {/* RIGHT COLUMN: Interactive Story Grid */}
+        <div className="lg:col-span-8 space-y-12">
+           
+           {/* Top Navigation */}
+           <div className="flex items-center gap-8 text-sm overflow-x-auto pb-2 scrollbar-hide border-b border-white/5">
+              {['overview', 'experience', 'education', 'awards'].map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => handleTabChange(tab as TabType)}
+                  className={`pb-4 font-medium transition-all relative capitalize whitespace-nowrap ${
+                    activeTab === tab 
+                      ? 'text-white' 
+                      : 'text-white/40 hover:text-white'
+                  }`}
+                >
+                  {tab}
+                  {/* Active Tab Indicator Line */}
+                  {activeTab === tab && (
+                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-brand-green rounded-t-full" />
+                  )}
+                </button>
+              ))}
+           </div>
+
+           {/* The Grid */}
+           <div className="grid sm:grid-cols-2 gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500 key={activeTab}">
+              {currentContent.map((item, idx) => (
+                <SkillCard
+                  key={item.id}
+                  item={item}
+                  isActive={idx === activeCardIndex}
+                  onClick={() => setActiveCardIndex(idx)}
+                />
+              ))}
+           </div>
+
+           {/* Mobile Tech Stack */}
+           <div className="lg:hidden">
+              <h4 className="text-xs font-bold text-white/40 uppercase tracking-widest mb-4">Tech Stack</h4>
+              <div className="flex flex-wrap gap-2">
+                 {['React', 'Next.js', 'TypeScript', 'Python', 'Go', 'AWS'].map(tech => (
+                    <TechPill key={tech}>{tech}</TechPill>
+                 ))}
+              </div>
+           </div>
+
+           {/* Quote / Philosophy */}
+           <div className="p-8 border-l-2 border-brand-green/30 bg-white/5 rounded-r-xl">
+              <p className="text-lg italic text-white/80 mb-4">
+                 "Code is poetry written for machines, but designed for humans to read."
+              </p>
+              <div className="text-sm text-brand-green font-mono">
+                 — My Engineering Philosophy
+              </div>
+           </div>
+
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default AboutSection;
+export default AboutSection
