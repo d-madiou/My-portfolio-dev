@@ -1,88 +1,103 @@
 "use client"
 
-import React, { useState } from "react"
-import { CheckIcon } from "./Icon" // Assuming this exists based on your code
-import { ArrowDownIcon } from "lucide-react"
+import React, { useState, useRef } from "react"
+import { 
+  ArrowDownIcon, 
+  ChevronRight,
+  ChevronLeft
+} from "lucide-react"
 
-// --- Types & Mock Data ---
+// --- Types ---
 
-type TabType = 'overview' | 'experience' | 'education' | 'awards';
+type TabType = 'overview' | 'experience' | 'education' | 'achievements';
 
-interface InfoCardData {
+interface TimelineItem {
   id: string;
   title: string;
+  subtitle?: string;
   description: string;
-  image: string;
+  tags: string[];
 }
 
-// FAKE DATA STRUCTURE
-const TAB_DATA: Record<TabType, InfoCardData[]> = {
+// --- Real Data (Mapped from CV) ---
+
+const TAB_DATA: Record<TabType, TimelineItem[]> = {
   overview: [
     {
       id: "o1",
-      title: "Frontend Architecture",
-      description: "Crafting responsive, pixel-perfect UIs using React, Next.js, and Tailwind CSS with a focus on accessibility and performance.",
-      image: "https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=1000&auto=format&fit=crop"
+      title: "Backend Architecture",
+      subtitle: "Python & Django",
+      description: "Engineering scalable, secure backends using Django REST Framework. Handling complex data models for high-performance APIs.",
+      tags: ["Django", "DRF", "PostgreSQL"],
     },
     {
       id: "o2",
-      title: "Backend Systems",
-      description: "Designing robust APIs and microservices using Node.js, Go, and Python, ensuring scalability and security.",
-      image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?q=80&w=1000&auto=format&fit=crop"
+      title: "Real-Time Systems",
+      subtitle: "IoT & Streaming",
+      description: "Architecting low-latency platforms. Connected IoT hardware via AWS and built real-time video streaming with OBS integration.",
+      tags: ["AWS", "WebSockets", "IoT"],
     },
     {
       id: "o3",
-      title: "Cloud Infrastructure",
-      description: "Deploying and managing containerized applications on AWS and DigitalOcean using Docker and Kubernetes.",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop"
+      title: "Frontend Engineering",
+      subtitle: "React Ecosystem",
+      description: "Building interactive Production-Ready Web Apps (PWA) using Next.js and TypeScript with a focus on seamless state management.",
+      tags: ["React", "Next.js", "TypeScript"],
     },
     {
       id: "o4",
-      title: "UI/UX Collaboration",
-      description: "Bridging the gap between design and code, working closely with designers to implement Figma prototypes accurately.",
-      image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=1000&auto=format&fit=crop"
+      title: "DevOps & Cloud",
+      subtitle: "Infrastructure",
+      description: "Deploying production environments. Proficient in Docker containerization, CI/CD pipelines, and AWS cloud infrastructure.",
+      tags: ["Docker", "AWS", "CI/CD"],
     }
   ],
   experience: [
     {
       id: "e1",
-      title: "Senior Full Stack Dev",
-      description: "TechCorp Inc. (2021 - Present). Led a team of 5 engineers to rebuild the legacy core platform, improving load times by 40%.",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=1000&auto=format&fit=crop"
+      title: "Lead Developer",
+      subtitle: "Tech Nexus | Present",
+      description: "Co-founded a tech hub. Leading development of live apps and mentoring students in algorithmic problem-solving.",
+      tags: ["Leadership", "Full Stack"],
     },
     {
       id: "e2",
-      title: "Frontend Engineer",
-      description: "Creative Agency (2019 - 2021). Developed award-winning interactive websites for Fortune 500 clients using WebGL and GSAP.",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1000&auto=format&fit=crop"
+      title: "Full Stack Dev",
+      subtitle: "Pultrix & Tolimoo",
+      description: "Engineered IoT backends for farm monitoring and built high-traffic social platforms with 80% increased security.",
+      tags: ["IoT", "System Design"],
     },
   ],
   education: [
     {
       id: "edu1",
-      title: "M.S. Computer Science",
-      description: "Stanford University (2017-2019). Specialization in Artificial Intelligence and Human-Computer Interaction.",
-      image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1000&auto=format&fit=crop"
+      title: "B.Comp.Sc (Hons)",
+      subtitle: "Albukhary Int. Univ",
+      description: "GPA 3.75/4.0. Developed 'AIU Market Place', a campus e-commerce solution used by 16+ active stores.",
+      tags: ["Dean's List", "Algorithms"],
     },
     {
       id: "edu2",
-      title: "B.S. Software Engineering",
-      description: "MIT (2013-2017). Graduated Summa Cum Laude. Dean's List for 8 consecutive semesters.",
-      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1000&auto=format&fit=crop"
+      title: "Software Engineer",
+      subtitle: "ALX Africa",
+      description: "Intensive 12-month program covering C, Python, DevOps, and System Design. Certified Software Engineer.",
+      tags: ["C Language", "Engineering"],
     }
   ],
-  awards: [
+  achievements: [
     {
       id: "a1",
-      title: "Hackathon Winner 2023",
-      description: "First place in the Global AI Hackathon for building an accessibility tool for visually impaired developers.",
-      image: "https://images.unsplash.com/photo-1569437061241-a848be43cc82?q=80&w=1000&auto=format&fit=crop"
+      title: "Startup Winner",
+      subtitle: "Best Campus Startup",
+      description: "Awarded for the 'Tech Nexus' initiative, validating business viability and technical execution.",
+      tags: ["Entrepreneurship"],
     },
     {
       id: "a2",
-      title: "Open Source Contributor",
-      description: "Recognized as a top contributor to the React ecosystem in 2022 for performance optimization libraries.",
-      image: "https://images.unsplash.com/photo-1607799275518-d58665d096cd?q=80&w=1000&auto=format&fit=crop"
+      title: "AWS Certified",
+      subtitle: "Global Certification",
+      description: "AWS Cloud Practitioner Certified. Also completed Harvard CS50 and The Odin Project.",
+      tags: ["AWS", "Cloud"],
     }
   ]
 }
@@ -90,64 +105,76 @@ const TAB_DATA: Record<TabType, InfoCardData[]> = {
 // --- Helper Components ---
 
 const TechPill: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <span className="px-3 py-1.5 bg-white/5 hover:bg-white/10 border border-white/5 hover:border-white/20 rounded text-xs font-mono text-brand-gray-light hover:text-white transition-colors cursor-default">
+  <span className="px-3 py-1.5 bg-secondary/50 hover:bg-secondary border border-black/5 hover:border-black/10 rounded text-xs font-mono text-muted-foreground hover:text-foreground transition-colors cursor-default">
     {children}
   </span>
 )
 
 const StatBox: React.FC<{ label: string; value: string }> = ({ label, value }) => (
   <div className="flex flex-col">
-    <span className="text-3xl font-bold text-white">{value}</span>
-    <span className="text-[10px] uppercase tracking-widest text-white/40 mt-1">{label}</span>
+    <span className="text-3xl font-bold text-foreground">{value}</span>
+    <span className="text-[10px] uppercase tracking-widest text-muted-foreground mt-1">{label}</span>
   </div>
 )
 
-const SkillCard: React.FC<{ 
-  item: InfoCardData
-  isActive: boolean
-  onClick: () => void
-}> = ({ item, isActive, onClick }) => {
+// --- Horizontal Timeline Components ---
+
+const TimelineCard = ({ 
+  item, 
+  index 
+}: { 
+  item: TimelineItem; 
+  index: number; 
+}) => {
+  const isTop = index % 2 === 0; // Zigzag logic: Even numbers top, Odd bottom
+
   return (
-    <div
-      onClick={onClick}
-      className={`group relative h-full min-h-[280px] rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 border ${
-        isActive 
-          ? 'border-brand-green/50' 
-          : 'border-white/5 hover:border-white/20'
-      }`}
-    >
-      {/* Image Layer */}
-      <div className="absolute inset-0">
-        <img
-          src={item.image}
-          alt={item.title}
-          className={`w-full h-full object-cover transition-transform duration-1000 ${
-            isActive ? 'scale-110 opacity-40' : 'scale-100 opacity-20 group-hover:opacity-30'
-          }`}
-        />
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent" />
+    <div className="relative flex-shrink-0 w-[300px] h-full group">
+      
+      {/* Connector Line (Vertical) */}
+      <div className={`
+        absolute left-1/2 -translate-x-1/2 w-px bg-black/5 group-hover:bg-[#FA891A]/50 transition-colors duration-500
+        ${isTop ? 'top-1/2 h-[calc(50%-24px)]' : 'bottom-1/2 h-[calc(50%-24px)]'}
+      `} />
+
+      {/* Node Dot */}
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full border border-black/10 bg-white z-10 group-hover:border-[#FA891A] group-hover:scale-125 transition-all duration-300">
+        <div className="absolute inset-0 m-auto w-1 h-1 bg-[#FA891A] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
       </div>
 
-      {/* Content Layer */}
-      <div className="relative h-full flex flex-col justify-end p-6">
-        <div className={`transition-all duration-300 ${isActive ? 'translate-y-0' : 'translate-y-2'}`}>
-          <div className="flex items-center justify-between mb-2">
-            <h3 className={`text-lg font-bold transition-colors ${
-              isActive ? 'text-white' : 'text-white/70'
-            }`}>
+      {/* The Card Content */}
+      <div className={`
+        absolute left-0 right-0 ${isTop ? 'bottom-1/2 pb-6' : 'top-1/2 pt-6'}
+      `}>
+        <div className="p-6 rounded-xl bg-white border border-black/5 shadow-sm hover:border-[#FA891A]/30 hover:shadow-md transition-all duration-300 group-hover:-translate-y-1">
+          
+          {/* Header Typography - No Icon */}
+          <div className="flex flex-col gap-1 mb-4">
+             {item.subtitle && (
+              <span className="text-[10px] uppercase tracking-widest text-[#FA891A] font-mono">
+                {item.subtitle}
+              </span>
+            )}
+            <h3 className="text-lg font-bold text-foreground group-hover:text-black transition-colors">
               {item.title}
             </h3>
-            {isActive && <CheckIcon className="w-5 h-5 text-brand-green animate-in zoom-in" />}
           </div>
-          
-          <p className={`text-sm leading-relaxed text-brand-gray-light transition-opacity duration-300 ${
-            isActive ? 'opacity-100 line-clamp-none' : 'opacity-0 h-0 overflow-hidden'
-          }`}>
+
+          <p className="text-sm text-muted-foreground leading-relaxed mb-5 line-clamp-3">
             {item.description}
           </p>
+
+          <div className="flex flex-wrap gap-2">
+            {item.tags.map(tag => (
+              <span key={tag} className="text-[10px] px-2 py-1 rounded bg-secondary text-muted-foreground border border-black/5">
+                {tag}
+              </span>
+            ))}
+          </div>
+
         </div>
       </div>
+
     </div>
   )
 }
@@ -156,80 +183,82 @@ const SkillCard: React.FC<{
 
 const AboutSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabType>('overview')
-  const [activeCardIndex, setActiveCardIndex] = useState(0)
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
 
-  // When tab changes, reset the active card to the first one
-  const handleTabChange = (tab: TabType) => {
-    setActiveTab(tab)
-    setActiveCardIndex(0)
+  const handleScroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = 320; // Card width + gap
+      scrollContainerRef.current.scrollBy({
+        left: direction === 'right' ? scrollAmount : -scrollAmount,
+        behavior: 'smooth'
+      })
+    }
   }
 
-  // Get content based on active tab
-  const currentContent = TAB_DATA[activeTab]
-
   return (
-    <section className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-white/5">
+    <section className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-black/5 overflow-hidden">
       
       {/* Section Header */}
       <div className="mb-16">
-        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+        <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
           About Me
         </h2>
-        <p className="text-xl text-brand-gray-light max-w-3xl leading-relaxed">
-          I am a multidisciplinary developer bridging the gap between <span className="text-white">complex data</span> and <span className="text-white">human-centric interfaces</span>. My work is driven by the belief that software should be robust, scalable, and intuitive.
+        <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
+          I am a <span className="text-foreground font-semibold">Certified Software Engineer</span> and Computer Science student passionate about building scalable, production-ready applications. I thrive on solving complex backend challenges and optimizing performance.
         </p>
       </div>
 
-      <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+      <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         
         {/* LEFT COLUMN: Profile "ID Card" (Sticky) */}
-        <div className="lg:col-span-4 lg:sticky lg:top-32 space-y-8">
+        <div className="lg:col-span-4 lg:sticky lg:top-32 space-y-8 z-20">
           
-          <div className="p-6 sm:p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md shadow-2xl">
+          <div className="p-6 sm:p-8 rounded-3xl bg-white border border-black/5 shadow-xl">
              {/* Avatar Area */}
              <div className="flex items-center gap-5 mb-8">
-                <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-white/10">
+                <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-black/5">
+                   {/* Replace with your real photo */}
                    <img 
                       src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=200&h=200"
-                      alt="Profile"
+                      alt="Thierno Madiou Diallo"
                       className="w-full h-full object-cover" 
                    />
                 </div>
                 <div>
-                   <h3 className="text-xl font-bold text-white">Thierno Madiou</h3>
-                   <div className="text-brand-green text-sm font-medium">Full Stack Engineer</div>
+                   <h3 className="text-xl font-bold text-foreground leading-tight">Thierno Madiou</h3>
+                   <div className="text-[#FA891A] text-sm font-medium">Software Engineer</div>
                 </div>
              </div>
 
              {/* Bio Data */}
-             <div className="space-y-6 text-sm text-brand-gray-light">
+             <div className="space-y-6 text-sm text-muted-foreground">
                 <p>
-                   Currently building scalable web applications and analyzing complex datasets to drive business decisions.
+                  As the Co-founder of <strong>Tech Nexus</strong>, I lead development on real-time platforms and e-commerce solutions using Django, React, and AWS.
                 </p>
                 <div className="flex items-center gap-2">
-                   <span className="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
-                   <span className="text-white/80">Open to new opportunities</span>
+                   <span className="w-2 h-2 rounded-full bg-[#FA891A] animate-pulse"></span>
+                   <span className="text-foreground/80">Open to new opportunities</span>
                 </div>
              </div>
 
              {/* Stats Row */}
-             <div className="mt-8 pt-8 border-t border-white/10 grid grid-cols-2 gap-6">
-                <StatBox label="Years Exp." value="02+" />
-                <StatBox label="Projects" value="15+" />
+             <div className="mt-8 pt-8 border-t border-black/5 grid grid-cols-2 gap-6">
+                <StatBox label="Experience" value="03 Yrs" />
+                <StatBox label="Projects" value="10+" />
              </div>
 
              {/* Action */}
-             <button className="mt-8 w-full py-3 bg-white hover:bg-brand-green text-black font-bold rounded transition-colors flex items-center justify-center gap-2 group">
-                Download Resume
+             <button className="mt-8 w-full py-3 bg-black text-white hover:bg-[#FA891A] font-bold rounded transition-colors flex items-center justify-center gap-2 group shadow-lg hover:shadow-orange-500/20">
+                Download CV
                 <ArrowDownIcon className="w-4 h-4 transition-transform group-hover:translate-y-1" />
              </button>
           </div>
 
-          {/* Core Tech Stack (Mobile: Hidden, Desktop: Visible) */}
+          {/* Core Tech Stack */}
           <div className="hidden lg:block">
-            <h4 className="text-xs font-bold text-white/40 uppercase tracking-widest mb-4">Tech Stack</h4>
+            <h4 className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-4">Tech Stack</h4>
             <div className="flex flex-wrap gap-2">
-               {['React', 'Next.js', 'TypeScript', 'Node.js', 'Python', 'Go', 'AWS', 'Docker', 'PostgreSQL', 'Redis', 'TensorFlow', 'Figma'].map(tech => (
+               {['Python', 'Django', 'React', 'Next.js', 'TypeScript', 'AWS', 'PostgreSQL', 'Docker', 'Tailwind', 'Supabase'].map(tech => (
                   <TechPill key={tech}>{tech}</TechPill>
                ))}
             </div>
@@ -237,63 +266,68 @@ const AboutSection: React.FC = () => {
 
         </div>
 
-        {/* RIGHT COLUMN: Interactive Story Grid */}
-        <div className="lg:col-span-8 space-y-12">
+        {/* RIGHT COLUMN: Horizontal Zigzag Timeline */}
+        <div className="lg:col-span-8 w-full">
            
-           {/* Top Navigation */}
-           <div className="flex items-center gap-8 text-sm overflow-x-auto pb-2 scrollbar-hide border-b border-white/5">
-              {['overview', 'experience', 'education', 'awards'].map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => handleTabChange(tab as TabType)}
-                  className={`pb-4 font-medium transition-all relative capitalize whitespace-nowrap ${
-                    activeTab === tab 
-                      ? 'text-white' 
-                      : 'text-white/40 hover:text-white'
-                  }`}
-                >
-                  {tab}
-                  {/* Active Tab Indicator Line */}
-                  {activeTab === tab && (
-                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-brand-green rounded-t-full" />
-                  )}
+           {/* Tab Navigation */}
+           <div className="flex items-center justify-between mb-8 border-b border-black/5 pb-2">
+             <div className="flex gap-6 overflow-x-auto scrollbar-hide">
+                {['overview', 'experience', 'education', 'achievements'].map((tab) => (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveTab(tab as TabType)}
+                    className={`pb-4 text-sm font-medium transition-colors capitalize relative whitespace-nowrap ${
+                      activeTab === tab ? 'text-foreground font-bold' : 'text-muted-foreground hover:text-foreground'
+                    }`}
+                  >
+                    {tab}
+                    {activeTab === tab && (
+                      <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#FA891A] rounded-t-full" />
+                    )}
+                  </button>
+                ))}
+             </div>
+             
+             {/* Desktop Scroll Controls */}
+             <div className="hidden sm:flex gap-2">
+                <button onClick={() => handleScroll('left')} className="p-2 rounded-full hover:bg-black/5 text-muted-foreground hover:text-foreground transition-colors">
+                   <ChevronLeft className="w-5 h-5" />
                 </button>
-              ))}
+                <button onClick={() => handleScroll('right')} className="p-2 rounded-full hover:bg-black/5 text-muted-foreground hover:text-foreground transition-colors">
+                   <ChevronRight className="w-5 h-5" />
+                </button>
+             </div>
            </div>
 
-           {/* The Grid */}
-           <div className="grid sm:grid-cols-2 gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500 key={activeTab}">
-              {currentContent.map((item, idx) => (
-                <SkillCard
-                  key={item.id}
-                  item={item}
-                  isActive={idx === activeCardIndex}
-                  onClick={() => setActiveCardIndex(idx)}
-                />
-              ))}
-           </div>
-
-           {/* Mobile Tech Stack */}
-           <div className="lg:hidden">
-              <h4 className="text-xs font-bold text-white/40 uppercase tracking-widest mb-4">Tech Stack</h4>
-              <div className="flex flex-wrap gap-2">
-                 {['React', 'Next.js', 'TypeScript', 'Python', 'Go', 'AWS'].map(tech => (
-                    <TechPill key={tech}>{tech}</TechPill>
-                 ))}
+           {/* The Horizontal Timeline Engine */}
+           <div className="relative h-[600px] w-full">
+              
+              {/* Central Axis Line */}
+              <div className="absolute top-1/2 left-0 w-full h-px bg-black/5" />
+              
+              {/* Scrollable Area */}
+              <div 
+                ref={scrollContainerRef}
+                className="absolute inset-0 overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing"
+              >
+                <div className="flex items-center h-full px-4 gap-8 min-w-max">
+                   {TAB_DATA[activeTab].map((item, idx) => (
+                     <TimelineCard key={item.id} item={item} index={idx} />
+                   ))}
+                   
+                   {/* End Spacer */}
+                   <div className="w-12 h-1" />
+                </div>
               </div>
-           </div>
 
-           {/* Quote / Philosophy */}
-           <div className="p-8 border-l-2 border-brand-green/30 bg-white/5 rounded-r-xl">
-              <p className="text-lg italic text-white/80 mb-4">
-                 "Code is poetry written for machines, but designed for humans to read."
-              </p>
-              <div className="text-sm text-brand-green font-mono">
-                 — My Engineering Philosophy
-              </div>
+              {/* Fade Gradients (White for Light Mode) */}
+              <div className="absolute top-0 left-0 w-8 h-full bg-gradient-to-r from-background to-transparent pointer-events-none" />
+              <div className="absolute top-0 right-0 w-16 h-full bg-gradient-to-l from-background to-transparent pointer-events-none" />
+              
            </div>
 
         </div>
+
       </div>
     </section>
   )

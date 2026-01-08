@@ -1,7 +1,5 @@
-import Header from "@/components/layout/Header";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
-import Hero from "@/components/layout/Hero";
 import { Inter } from "next/font/google";
 
 const inter = Inter({
@@ -10,8 +8,9 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Thierno.dev portfolio",
-  description: "Bringing your ideas to life creatively.",
+  // Updated to match your CV/Footer details
+  title: "Diallo Madiou | Full Stack Engineer", 
+  description: "Crafting digital experiences where code meets creativity.",
 };
 
 export default function RootLayout({
@@ -22,24 +21,33 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body className={`${inter.className} bg-[#030303] text-foreground overflow-x-hidden m-0 p-0`}>
+      
+      {/* 1. bg-white: Explicit light background
+        2. text-zinc-900: High contrast dark text for readability
+        3. antialiased: Smoother font rendering on light backgrounds
+      */}
+      <body className={`${inter.className} bg-white text-zinc-900 overflow-x-hidden m-0 p-0 antialiased`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark" // Force dark mode default for this aesthetic
-          enableSystem={false} // tailored for the dark aesthetic
+          defaultTheme="light" 
+          enableSystem={false}
           disableTransitionOnChange
         >
-          {/* --- AMBIENT BACKGROUND LAYERS --- */}
-          <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-             {/* Primary Green Blob (Top Left) - Matches your brand-green */}
-             <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px]" />
+          {/* --- AMBIENT BACKGROUND LAYERS (Updated for Orange Theme) --- */}
+          <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden select-none">
              
-             {/* Secondary Cool Blob (Bottom Right) - Adds depth */}
-             <div className="absolute bottom-[10%] right-[-5%] w-[600px] h-[600px] bg-blue-900/10 rounded-full blur-[120px]" />
+             {/* Primary Blob (Top Left): Brand Orange Glow */}
+             {/* Replaced Green #AFFF00 with #FA891A */}
+             <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#FA891A]/15 rounded-full blur-[100px]" />
              
-             {/* Subtle Noise Texture - Adds realism to glassmorphism */}
+             {/* Secondary Blob (Bottom Right): Warm fill */}
+             {/* A very faint orange/gray mix to keep the page feeling "warm" but clean */}
+             <div className="absolute bottom-[10%] right-[-5%] w-[600px] h-[600px] bg-[#FA891A]/5 rounded-full blur-[120px]" />
+             
+             {/* Texture: Noise Grain */}
+             {/* mix-blend-multiply allows the noise to sit naturally on white */}
              <div 
-               className="absolute inset-0 opacity-[0.03]" 
+               className="absolute inset-0 opacity-[0.03] mix-blend-multiply" 
                style={{ 
                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` 
                }} 
@@ -47,11 +55,8 @@ export default function RootLayout({
           </div>
 
           {/* --- MAIN CONTENT WRAPPER --- */}
-          <div className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center">
-            {/* Optional: Add Header here if you want it on all pages */}
-            {/* <Header /> */} 
-            
-            <main className="flex-1 w-full items-center justify-center">
+          <div className="relative z-10 w-full min-h-screen flex flex-col">
+            <main className="flex-grow w-full">
               {children}
             </main>
           </div>

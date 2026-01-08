@@ -4,44 +4,69 @@
 
 @layer base {
   :root {
-    /* Brand Colors */
-    --brand-black: #080808;
-    --brand-green: #AFFF00;
-    --brand-gray-dark: #1a1a1a;
-    --brand-gray-light: #a3a3a3;
+    /* --- LIGHT MODE (ORANGE & BLACK THEME) --- */
     
-    /* Light theme */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    /* Brand Colors */
+    --brand-black: #ffffff;       /* Main Background is White */
+    
+    /* NEW: Vibrant Tech Orange */
+    --brand-orange: #FF5500;      
+    
+    /* MAPPING: We set 'brand-green' to Orange so your existing code updates automatically */
+    --brand-green: #FF5500;       
+    
+    --brand-gray-dark: #f4f4f5;   /* Very light gray for cards/sections */
+    --brand-gray-light: #525252;  /* Dark gray for secondary text */
+    
+    /* ShadCN Light Theme Variables */
+    --background: 0 0% 100%;      /* White */
+    --foreground: 0 0% 0%;        /* Pure Black for high contrast */
+    
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
+    
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
-    --primary: 84 100% 51%;
-    --primary-foreground: 0 0% 0%;
+    
+    /* Primary is now ORANGE (HSL: 20, 100%, 50%) */
+    --primary: 20 100% 50%;       
+    --primary-foreground: 0 0% 100%;
+    
     --secondary: 0 0% 96.1%;
     --secondary-foreground: 0 0% 9%;
+    
     --muted: 0 0% 96.1%;
     --muted-foreground: 0 0% 45.1%;
+    
     --accent: 0 0% 96.1%;
     --accent-foreground: 0 0% 9%;
+    
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 84 100% 51%;
+    
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    
+    /* Ring/Focus color is now Orange */
+    --ring: 20 100% 50%;          
+    
     --radius: 0.5rem;
   }
 
   .dark {
-    /* Dark theme - your main theme */
+    /* --- DARK MODE OVERRIDES (Optional) --- */
+    --brand-black: #080808;
+    --brand-green: #FF5500; /* Orange in dark mode too */
+    --brand-gray-dark: #1a1a1a;
+    --brand-gray-light: #a3a3a3;
+
     --background: 0 0% 3.1%;
     --foreground: 0 0% 98%;
     --card: 0 0% 10%;
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 10%;
     --popover-foreground: 0 0% 98%;
-    --primary: 84 100% 51%;
+    --primary: 20 100% 50%;
     --primary-foreground: 0 0% 0%;
     --secondary: 0 0% 14.9%;
     --secondary-foreground: 0 0% 98%;
@@ -53,7 +78,7 @@
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
-    --ring: 84 100% 51%;
+    --ring: 20 100% 50%;
   }
 
   * {
@@ -70,49 +95,48 @@
     margin: 0;
     padding: 0;
   }
+  
+  /* Selection Color (Highlighting text) - ORANGE */
+  ::selection {
+    background-color: var(--brand-green); /* This is now orange */
+    color: white;
+  }
 }
 
 /* Custom animations */
 @keyframes movePattern {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(180px, 180px);
-  }
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(180px, 180px); }
 }
 
 .animate-movePattern {
   animation: movePattern 20s linear infinite;
 }
 
-/* Smooth scroll offset for fixed header */
+/* Smooth scroll offset */
 section {
   scroll-margin-top: 100px;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar (Updated for Light/Orange) */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--brand-black);
+  background: #f1f1f1; 
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--brand-gray-dark);
+  background: #d4d4d8; 
   border-radius: 5px;
+  border: 2px solid #f1f1f1;
 }
 
+/* Scrollbar hover turns ORANGE */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--brand-green);
+  background: var(--brand-green); 
 }
-
-
-
-
-/* ... existing code ... */
 
 /* TEXTURE & GRAIN UTILITIES */
 .bg-noise {
@@ -123,11 +147,11 @@ section {
   height: 100vh;
   pointer-events: none;
   z-index: 5;
-  opacity: 0.05; /* Adjust for more/less grain */
+  opacity: 0.03; 
+  mix-blend-mode: multiply; 
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Subtle breathing animation for the background image */
 @keyframes breathe {
   0% { transform: scale(1); }
   50% { transform: scale(1.05); }

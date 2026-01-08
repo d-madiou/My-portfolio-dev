@@ -3,7 +3,10 @@
 import type React from "react"
 import { useState } from "react"
 import { ModeToggle } from "../theme/mode-toggle"
-import { LogoIcon, XIcon, FacebookIcon, InstagramIcon, ChevronDownIcon, GithubIcon, LinkedInIcon } from "./Icon"
+import { XIcon, FacebookIcon, InstagramIcon, ChevronDownIcon, GithubIcon, LinkedInIcon } from "./Icon"
+import { BadgeCheckIcon } from "lucide-react"
+
+// --- Helper Components ---
 
 interface NavItemProps {
   children: React.ReactNode
@@ -28,14 +31,15 @@ const NavItem: React.FC<NavItemProps> = ({ children, href, hasDropdown, onClick 
     <a
       href={href}
       onClick={handleClick}
-      className="group relative flex items-center text-white/90 hover:text-brand-green transition-all duration-300 px-4 py-2"
+      // UPDATED: Hover text color to #FA891A (Orange)
+      className="group relative flex items-center text-foreground/80 hover:text-[#FA891A] transition-all duration-300 px-4 py-2"
     >
-      <span className="font-medium">{children}</span>
+      <span className="font-medium text-sm lg:text-base">{children}</span>
       {hasDropdown && (
         <ChevronDownIcon className="ml-1.5 h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
       )}
-      {/* Animated underline */}
-      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-green transition-all duration-300 group-hover:w-full" />
+      {/* UPDATED: Animated underline color to #FA891A (Orange) */}
+      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FA891A] transition-all duration-300 group-hover:w-full" />
     </a>
   )
 }
@@ -52,11 +56,14 @@ const SocialIcon: React.FC<SocialIconProps> = ({ children, label, href }) => (
     target="_blank"
     rel="noopener noreferrer"
     aria-label={label}
-    className="text-white/80 hover:text-brand-green transition-all duration-300 hover:scale-110 p-2 rounded-lg hover:bg-white/5"
+    // UPDATED: Hover background to #FA891A (Orange)
+    className="text-foreground/70 hover:text-white transition-all duration-300 hover:scale-110 p-2 rounded-lg hover:bg-[#FA891A]"
   >
     {children}
   </a>
 )
+
+// --- Main Header ---
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -64,10 +71,11 @@ const Header: React.FC = () => {
   const closeMenu = () => setIsMenuOpen(false)
 
   return (
-    <header className="py-5 px-4 sm:px-6 lg:px-8 backdrop-blur-sm bg-transparent sticky top-0 z-50 border-b border-white/5">
+    <header className="py-4 px-4 sm:px-6 lg:px-8 backdrop-blur-md bg-white/70 sticky top-0 z-50 border-b border-black/5 shadow-sm transition-all duration-300">
       <div className="container mx-auto max-w-7xl">
         <div className="flex justify-between items-center">
-          {/* Logo */}
+          
+          {/* Logo Section */}
           <a 
             href="#home" 
             onClick={(e) => {
@@ -75,16 +83,19 @@ const Header: React.FC = () => {
               window.scrollTo({ top: 0, behavior: 'smooth' })
               closeMenu()
             }}
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-1 group"
           >
-            <LogoIcon className="h-10 w-10 transition-transform duration-300 group-hover:scale-105" />
-            <span className="text-2xl text-white font-bold tracking-tight bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-              Thierno.
+            {/* Name */}
+            <span className="text-2xl text-foreground font-extrabold tracking-tight group-hover:opacity-80 transition-opacity">
+              Thierno
             </span>
+            
+            {/* Blue Verified Tick (Facebook Style) */}
+            <BadgeCheckIcon className="w-6 h-6 text-white fill-blue-500" />
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center">
+          <nav className="hidden lg:flex items-center gap-1">
             <NavItem href="#home">Home</NavItem>
             <NavItem href="#about">About Me</NavItem>
             <NavItem href="#services">Services</NavItem>
@@ -93,30 +104,33 @@ const Header: React.FC = () => {
             <NavItem href="#contact">Contact Me</NavItem>
           </nav>
 
-          {/* Social Icons */}
-          <div className="hidden lg:flex items-center gap-2">
+          {/* Social Icons & Theme Toggle */}
+          <div className="hidden lg:flex items-center gap-1">
             <SocialIcon label="X (Twitter)" href="https://twitter.com/yourhandle">
-              <XIcon className="h-5 w-5" />
+              <XIcon className="h-4 w-4" />
             </SocialIcon>
             <SocialIcon label="Facebook" href="https://facebook.com/yourpage">
-              <FacebookIcon className="h-5 w-5" />
+              <FacebookIcon className="h-4 w-4" />
             </SocialIcon>
             <SocialIcon label="Instagram" href="https://instagram.com/yourhandle">
-              <InstagramIcon className="h-5 w-5" />
+              <InstagramIcon className="h-4 w-4" />
             </SocialIcon>
             <SocialIcon label="GitHub" href="https://github.com/yourusername">
-              <GithubIcon className="h-5 w-5" />
+              <GithubIcon className="h-4 w-4" />
             </SocialIcon>
             <SocialIcon label="LinkedIn" href="https://linkedin.com/in/yourprofile">
-              <LinkedInIcon className="h-5 w-5" />
+              <LinkedInIcon className="h-4 w-4" />
             </SocialIcon>
-            <ModeToggle />
+            
+            <div className="ml-2 pl-2 border-l border-black/10">
+              <ModeToggle />
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-white/5 transition-colors duration-300"
+            className="lg:hidden text-foreground focus:outline-none p-2 rounded-lg hover:bg-black/5 transition-colors duration-300"
             aria-label="Toggle menu"
           >
             <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -130,9 +144,9 @@ const Header: React.FC = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu (Glassmorphism Light) */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-6 bg-brand-gray-dark/80 backdrop-blur-md rounded-2xl p-6 border border-white/10 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-300">
+          <div className="lg:hidden mt-4 bg-white/95 backdrop-blur-xl rounded-2xl p-6 border border-black/5 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-300">
             <nav className="flex flex-col gap-2">
               <NavItem href="#home" onClick={closeMenu}>Home</NavItem>
               <NavItem href="#about" onClick={closeMenu}>About Me</NavItem>
@@ -141,25 +155,19 @@ const Header: React.FC = () => {
               <NavItem href="#blog" hasDropdown onClick={closeMenu}>Blog</NavItem>
               <NavItem href="#contact" onClick={closeMenu}>Contact Me</NavItem>
 
-              <div className="flex items-center gap-2 pt-6 mt-4 border-t border-white/10">
-                <SocialIcon label="X (Twitter)" href="https://twitter.com/yourhandle">
-                  <XIcon className="h-5 w-5" />
-                </SocialIcon>
-                <SocialIcon label="Facebook" href="https://facebook.com/yourpage">
-                  <FacebookIcon className="h-5 w-5" />
-                </SocialIcon>
-                <SocialIcon label="Instagram" href="https://instagram.com/yourhandle">
-                  <InstagramIcon className="h-5 w-5" />
-                </SocialIcon>
-                <SocialIcon label="GitHub" href="https://github.com/yourusername">
-                  <GithubIcon className="h-5 w-5" />
-                </SocialIcon>
-                <SocialIcon label="LinkedIn" href="https://linkedin.com/in/yourprofile">
-                  <LinkedInIcon className="h-5 w-5" />
-                </SocialIcon>
-                <div className="ml-auto">
-                  <ModeToggle />
+              <div className="flex flex-wrap items-center gap-4 pt-6 mt-4 border-t border-black/5 justify-between">
+                <div className="flex gap-2">
+                    <SocialIcon label="X (Twitter)" href="https://twitter.com/yourhandle">
+                    <XIcon className="h-5 w-5" />
+                    </SocialIcon>
+                    <SocialIcon label="GitHub" href="https://github.com/yourusername">
+                    <GithubIcon className="h-5 w-5" />
+                    </SocialIcon>
+                    <SocialIcon label="LinkedIn" href="https://linkedin.com/in/yourprofile">
+                    <LinkedInIcon className="h-5 w-5" />
+                    </SocialIcon>
                 </div>
+                <ModeToggle />
               </div>
             </nav>
           </div>

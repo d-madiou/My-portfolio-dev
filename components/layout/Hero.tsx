@@ -1,5 +1,7 @@
+"use client"
+
 import type React from "react"
-import { StarIcon, ArrowRightIcon, JavaScriptIcon, PythonIcon } from "./Icon"
+import { StarIcon, ArrowRightIcon, JavaScriptIcon, PythonIcon } from "./Icon" // Assuming these exist
 import Image from "../../assets/images/ThiernoHero.png"
 import Image1 from "../../assets/images/Image1.jpeg"
 import Image2 from "../../assets/images/Image2.jpeg"
@@ -24,9 +26,9 @@ const Hero: React.FC = () => {
         }
       `}} />
 
-      {/* Floating Orbs (Subtler for Natural Theme) */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-brand-green/5 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: "8s" }} />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-brand-orange/5 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: "10s", animationDelay: "2s" }} />
+      {/* Floating Orbs (Using #FA891A) */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-[#FA891A]/10 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: "8s" }} />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#FA891A]/5 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: "10s", animationDelay: "2s" }} />
 
       {/* Main Content Grid */}
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
@@ -35,28 +37,30 @@ const Hero: React.FC = () => {
         <div className="text-center lg:text-left space-y-8">
           
           {/* Welcome Badge */}
-          <div className="inline-flex items-center bg-white/5 backdrop-blur-md text-sm font-semibold py-3 px-5 rounded-full border border-white/10 shadow-lg animate-in fade-in slide-in-from-top-4 duration-700">
-            <StarIcon className="h-4 w-4 text-brand-green mr-2 animate-pulse" />
-            <span className="text-white/80 tracking-wider">WELCOME TO MY PLATFORM</span>
+          <div className="inline-flex items-center bg-secondary/50 backdrop-blur-md text-sm font-semibold py-3 px-5 rounded-full border border-black/5 shadow-sm animate-in fade-in slide-in-from-top-4 duration-700">
+            {/* Custom Orange Icon */}
+            <StarIcon className="h-4 w-4 text-[#FA891A] mr-2 animate-pulse" />
+            <span className="text-foreground/80 tracking-wider">WELCOME TO MY PLATFORM</span>
           </div>
 
           {/* Main Heading */}
           <div className="space-y-2">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-white">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-foreground">
               <span className="block animate-in fade-in slide-in-from-left-8 duration-700 delay-100">
                 SOFTWARE
               </span>
               <span className="block animate-in fade-in slide-in-from-left-8 duration-700 delay-300">
                 ENGINEER & DATA
               </span>
-              <span className="block text-brand-green animate-in fade-in slide-in-from-left-8 duration-700 delay-500">
+              {/* Custom Orange Text */}
+              <span className="block text-[#FA891A] animate-in fade-in slide-in-from-left-8 duration-700 delay-500">
                 SCIENTIST
               </span>
             </h1>
           </div>
 
           {/* Description */}
-          <p className="text-lg sm:text-xl text-white/60 leading-relaxed max-w-xl mx-auto lg:mx-0 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-700">
+          <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-700">
             Motivated software developer, co-founder, and instructor at Tech Nexus. Built 3 production-ready applications used globally. Passionate about building scalable, user-friendly solutions.
           </p>
 
@@ -64,7 +68,8 @@ const Hero: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-in fade-in slide-in-from-bottom-6 duration-700 delay-1000">
             <a
               href="#projects"
-              className="group relative inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-brand-black bg-brand-green rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_-10px_rgba(175,255,0,0.5)]"
+              // Custom Orange Background & Shadow
+              className="group relative inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-[#FA891A] rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_-10px_#FA891A]"
             >
               <span className="relative z-10 flex items-center gap-2">
                 View My Work
@@ -74,25 +79,26 @@ const Hero: React.FC = () => {
             
             <a
               href="#contact"
-              className="group inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-white/5 border border-white/10 rounded-full transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:scale-105 backdrop-blur-sm"
+              className="group inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-foreground bg-white border border-black/10 rounded-full transition-all duration-300 hover:bg-black/5 hover:border-black/20 hover:scale-105 backdrop-blur-sm shadow-sm"
             >
               Get In Touch
             </a>
           </div>
 
           {/* Stats Section */}
-          <div className="grid grid-cols-3 gap-6 pt-8 max-w-lg mx-auto lg:mx-0 border-t border-white/5 mt-8 animate-in fade-in zoom-in-95 duration-700 delay-1000">
+          <div className="grid grid-cols-3 gap-6 pt-8 max-w-lg mx-auto lg:mx-0 border-t border-black/5 mt-8 animate-in fade-in zoom-in-95 duration-700 delay-1000">
             <div className="text-center lg:text-left">
-              <div className="text-3xl sm:text-4xl font-bold text-white">1+</div>
-              <div className="text-xs uppercase tracking-widest text-white/40 mt-1">Years Exp.</div>
+              <div className="text-3xl sm:text-4xl font-bold text-foreground">03+</div>
+              <div className="text-xs uppercase tracking-widest text-muted-foreground mt-1">Years Exp.</div>
             </div>
             <div className="text-center lg:text-left">
-              <div className="text-3xl sm:text-4xl font-bold text-brand-green">15+</div>
-              <div className="text-xs uppercase tracking-widest text-white/40 mt-1">Projects</div>
+              {/* Custom Orange Stat */}
+              <div className="text-3xl sm:text-4xl font-bold text-[#FA891A]">10+</div>
+              <div className="text-xs uppercase tracking-widest text-muted-foreground mt-1">Projects</div>
             </div>
             <div className="text-center lg:text-left">
-              <div className="text-3xl sm:text-4xl font-bold text-white">5+</div>
-              <div className="text-xs uppercase tracking-widest text-white/40 mt-1">Clients</div>
+              <div className="text-3xl sm:text-4xl font-bold text-foreground">16+</div>
+              <div className="text-xs uppercase tracking-widest text-muted-foreground mt-1">Live Users</div>
             </div>
           </div>
         </div>
@@ -102,35 +108,35 @@ const Hero: React.FC = () => {
           
           {/* Decorative Border Frame */}
           <div className="absolute -inset-6 sm:-inset-8 lg:-inset-10 z-0">
-            <div className="w-full h-full border border-white/20 rounded-[40px] sm:rounded-[50px] rotate-[-6deg] backdrop-blur-[2px] transition-transform duration-700 hover:rotate-[-8deg]" />
+            <div className="w-full h-full border border-black/10 rounded-[40px] sm:rounded-[50px] rotate-[-6deg] backdrop-blur-[2px] transition-transform duration-700 hover:rotate-[-8deg]" />
           </div>
 
           {/* Main Image Container */}
           <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg z-10">
-            <div className="relative overflow-hidden rounded-[40px] sm:rounded-[50px] shadow-2xl border border-white/10 bg-black/50">
+            <div className="relative overflow-hidden rounded-[40px] sm:rounded-[50px] shadow-2xl border border-white/50 bg-white">
               <img
                 src={Image.src}
                 alt="Creative Professional - Data Scientist and Software Engineer"
-                className="relative z-10 w-full object-cover aspect-[4/5] opacity-90 hover:opacity-100 transition-opacity duration-700"
+                className="relative z-10 w-full object-cover aspect-[4/5] hover:scale-105 transition-transform duration-700"
               />
-              {/* Image Gradient for better text contrast if needed */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-[11]" />
+              {/* Subtle Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent z-[11]" />
             </div>
 
             {/* Floating Tech Icons */}
-            <div className="hidden md:block absolute top-10 -left-12 z-20 bg-[#111] border border-white/10 p-4 rounded-2xl shadow-xl animate-float">
-              <JavaScriptIcon className="w-8 h-8" />
+            <div className="hidden md:block absolute top-10 -left-12 z-20 bg-white border border-black/5 p-4 rounded-2xl shadow-xl animate-float">
+              <JavaScriptIcon className="w-8 h-8 text-black" />
             </div>
 
-            <div className="hidden md:block absolute bottom-20 -right-12 z-20 bg-[#111] border border-white/10 p-4 rounded-2xl shadow-xl animate-float-delayed">
-              <PythonIcon className="w-8 h-8" />
+            <div className="hidden md:block absolute bottom-20 -right-12 z-20 bg-white border border-black/5 p-4 rounded-2xl shadow-xl animate-float-delayed">
+              <PythonIcon className="w-8 h-8 text-black" />
             </div>
 
-            {/* Mini Gallery Thumbnails (Glassmorphism) */}
-            <div className="hidden lg:flex absolute -bottom-8 left-1/2 -translate-x-1/2 gap-3 z-30 p-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl">
-              <img src={Image1.src} alt="Portfolio 1" className="w-12 h-12 rounded-lg object-cover opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer" />
-              <img src={Image2.src} alt="Portfolio 2" className="w-12 h-12 rounded-lg object-cover opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer" />
-              <img src={Image3.src} alt="Portfolio 3" className="w-12 h-12 rounded-lg object-cover opacity-60 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer" />
+            {/* Mini Gallery Thumbnails */}
+            <div className="hidden lg:flex absolute -bottom-8 left-1/2 -translate-x-1/2 gap-3 z-30 p-2 bg-white/60 backdrop-blur-xl border border-white/40 shadow-xl rounded-2xl">
+              <img src={Image1.src} alt="Portfolio 1" className="w-12 h-12 rounded-lg object-cover opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer shadow-sm" />
+              <img src={Image2.src} alt="Portfolio 2" className="w-12 h-12 rounded-lg object-cover opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer shadow-sm" />
+              <img src={Image3.src} alt="Portfolio 3" className="w-12 h-12 rounded-lg object-cover opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer shadow-sm" />
             </div>
           </div>
         </div>
