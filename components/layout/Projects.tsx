@@ -1,10 +1,9 @@
 "use client"
 
 import React, { useState, useEffect } from "react"
+import Image from "next/image"
 import { PROJECTS_DATA, Project } from "@/lib/constant"
-import { GithubIcon, ExternalLinkIcon, CheckIcon, LinkedInIcon } from "./Icon"
-
-// --- Helper Components ---
+import { GithubIcon, ExternalLinkIcon } from "./Icon"
 
 const Badge: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   // Light Mode: Light gray bg, dark text
@@ -30,9 +29,10 @@ const ProjectCard: React.FC<{ project: Project; onClick: () => void }> = ({ proj
     >
       {/* Image Container - Aspect Ratio 16:9 */}
       <div className="relative aspect-video w-full overflow-hidden bg-secondary border-b border-black/5">
-        <img
+        <Image
           src={project.image}
           alt={project.title}
+          fill
           className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
         />
         {/* Overlay (Lighter for Light Mode) */}
@@ -118,8 +118,8 @@ const ProjectModal: React.FC<{ project: Project; onClose: () => void }> = ({ pro
           <div className="flex-1 p-6 sm:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-black/5 space-y-10 bg-white">
             
             {/* Hero Image */}
-            <div className="w-full aspect-video rounded-xl overflow-hidden border border-black/10 shadow-sm">
-               <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-black/10 shadow-sm">
+               <Image src={project.image} alt={project.title} fill className="w-full h-full object-cover" />
             </div>
 
             {/* Metrics Bar */}

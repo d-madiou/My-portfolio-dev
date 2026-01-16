@@ -234,11 +234,9 @@ export const DatabaseIcon: React.FC<{ className?: string }> = ({ className }) =>
  */
 import { 
   Code2, 
-  Palette, 
   Database, 
   Zap, 
-  Lock, 
-  Smartphone,
+  Lock,
   Sheet,
   BarChart3
 } from 'lucide-react';

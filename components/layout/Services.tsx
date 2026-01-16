@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { SparkleIcon } from './Icon'; // Assuming this exists based on your code
 import { ArrowUpRight } from 'lucide-react';
 import About1 from '../../assets/images/About1.png'; // Example image import
@@ -69,9 +70,10 @@ const SkillsSection: React.FC = () => {
             <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-full border-b lg:border-b-0 lg:border-r border-black/5">
               <div className="absolute inset-0">
                  {/* Image */}
-                 <img 
-                    src={About1.src} 
+                 <Image 
+                    src={About1} 
                     alt="Technical Mastery" 
+                    fill
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   />
                   {/* Gradients (Adjusted for Light Mode - keeping image slightly dimmed for text contrast if needed, or clear) */}
@@ -98,7 +100,7 @@ const SkillsSection: React.FC = () => {
                   Technical Arsenal
                 </h2>
                 <p className="text-muted-foreground leading-relaxed text-sm md:text-base max-w-xl">
-                  I don't just use tools; I select the right instruments for the job. From full-stack engineering to complex data analysis, here is the technology stack I leverage.
+                  I don&apos;t just use tools; I select the right instruments for the job. From full-stack engineering to complex data analysis, here is the technology stack I leverage.
                 </p>
               </div>
 
