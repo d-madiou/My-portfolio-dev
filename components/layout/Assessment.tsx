@@ -36,7 +36,6 @@ const Assessment: React.FC = () => {
         
         <div className="mb-12 text-center">
           <div className="flex items-center justify-center gap-2 mb-2">
-            <Calculator className="w-5 h-5 text-[#FA891A]" />
             <span className="text-[#FA891A] font-bold tracking-wider text-sm uppercase">Technical Assessment</span>
           </div>
           <h2 className="text-3xl font-bold text-zinc-900">
