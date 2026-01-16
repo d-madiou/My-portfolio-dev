@@ -185,7 +185,7 @@ const Contact: React.FC = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-foreground mb-2">Message Sent</h3>
                 <p className="text-muted-foreground max-w-sm">
-                  Thank you for reaching out. I'll review your message and get back to you shortly.
+                  Thank you for reaching out. I&apos;ll review your message and get back to you shortly.
                 </p>
               </div>
             ) : (

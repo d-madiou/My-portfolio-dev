@@ -1,12 +1,14 @@
 "use client"
 
 import React, { useState, useRef } from "react"
+import NextImage from "next/image"
 import { 
   ArrowDownIcon, 
   ChevronRight,
   ChevronLeft
 } from "lucide-react"
 import Image from "../../assets/images/ThiernoHero.png"
+import { ArrowDown01Icon } from "lucide-react"
 
 // --- Types ---
 
@@ -247,9 +249,10 @@ const AboutSection: React.FC = () => {
              <div className="flex items-center gap-5 mb-8">
                 <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-black/5">
                    {/* Replace with your real photo */}
-                   <img 
-                      src={Image.src}
+                   <NextImage 
+                      src={Image}
                       alt="Thierno Madiou Diallo"
+                      fill
                       className="w-full h-full object-cover" 
                    />
                 </div>
@@ -286,7 +289,7 @@ const AboutSection: React.FC = () => {
                   className="mt-8 w-full py-3 bg-black text-white hover:bg-[#FA891A] font-bold rounded transition-colors flex items-center justify-center gap-2 group shadow-lg hover:shadow-orange-500/20"
                 >
                   Download CV
-                  <ArrowDownIcon className="w-4 h-4 transition-transform group-hover:translate-y-1" />
+                  <ArrowDown01Icon className="w-4 h-4 transition-transform group-hover:translate-y-1" />
                 </button>
               </a>
 

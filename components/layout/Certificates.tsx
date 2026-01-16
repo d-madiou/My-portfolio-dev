@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useRef, useState } from "react"
+import Image from "next/image"
 import { 
   ArrowLeft, 
   ArrowRight, 
@@ -148,9 +149,10 @@ const Certificates: React.FC = () => {
               "
             >
               {/* Image */}
-              <img 
+              <Image 
                 src={cert.image} 
-                alt={cert.title} 
+                alt={cert.title}
+                fill
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
 
@@ -180,10 +182,11 @@ const Certificates: React.FC = () => {
           </button>
 
           <div className="relative w-full max-w-4xl bg-white rounded-2xl shadow-2xl overflow-hidden border border-black/5 animate-in zoom-in-95 duration-300">
-            <div className="aspect-video w-full bg-zinc-100">
-              <img 
+            <div className="relative aspect-video w-full bg-zinc-100">
+              <Image 
                 src={selectedCert.image} 
-                alt={selectedCert.title} 
+                alt={selectedCert.title}
+                fill
                 className="w-full h-full object-contain"
               />
             </div>

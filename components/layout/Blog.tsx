@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from "react"
+import Image from "next/image"
 import { BLOG_POSTS, BlogPost } from "@/lib/constant"
 import { 
   ArrowRightIcon, 
@@ -34,10 +35,11 @@ const BlogCard: React.FC<{ post: BlogPost; onClick: () => void }> = ({ post, onC
       className="group cursor-pointer flex flex-col h-full bg-white border border-black/5 rounded-xl overflow-hidden hover:border-[#FA891A]/40 hover:shadow-lg transition-all duration-300 select-none"
     >
       {/* Image */}
-      <div className="aspect-[16/10] w-full overflow-hidden border-b border-black/5 bg-gray-100">
-        <img
+      <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-black/5 bg-gray-100">
+        <Image
           src={post.image}
           alt={post.title}
+          fill
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           draggable={false}
         />
@@ -69,7 +71,7 @@ const BlogCard: React.FC<{ post: BlogPost; onClick: () => void }> = ({ post, onC
         {/* Author Footer */}
         <div className="pt-4 border-t border-black/5 flex items-center justify-between mt-auto">
           <div className="flex items-center gap-3">
-            <img src={post.author.avatar} alt={post.author.name} className="w-6 h-6 rounded-full border border-black/5" />
+            <Image src={post.author.avatar} alt={post.author.name} width={24} height={24} className="rounded-full border border-black/5" />
             <span className="text-xs text-zinc-600 font-medium">{post.author.name}</span>
           </div>
           <div className="flex items-center gap-2 text-xs text-zinc-400">
@@ -142,8 +144,8 @@ const BlogReaderModal: React.FC<{ post: BlogPost; onClose: () => void }> = ({ po
               </div>
 
               {/* Hero Image */}
-              <div className="w-full aspect-[21/9] rounded-lg overflow-hidden mb-12 bg-gray-100 shadow-sm">
-                <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+              <div className="relative w-full aspect-[21/9] rounded-lg overflow-hidden mb-12 bg-gray-100 shadow-sm">
+                <Image src={post.image} alt={post.title} fill className="w-full h-full object-cover" />
               </div>
 
               {/* Typography Content - Standard Prose (Not Inverted) */}
@@ -169,7 +171,7 @@ const BlogReaderModal: React.FC<{ post: BlogPost; onClose: () => void }> = ({ po
                   </div>
 
                   <p>
-                    Understanding the user journey is paramount. We often get caught up in the "how" before we fully understand the "why". By reversing this process, we ensure that every line of code serves a purpose.
+                    Understanding the user journey is paramount. We often get caught up in the &quot;how&quot; before we fully understand the &quot;why&quot;. By reversing this process, we ensure that every line of code serves a purpose.
                   </p>
                 </div>
               </div>

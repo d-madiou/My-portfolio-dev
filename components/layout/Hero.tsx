@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import NextImage from "next/image"
 import { StarIcon, ArrowRightIcon, JavaScriptIcon, PythonIcon } from "./Icon" // Assuming these exist
 import Image from "../../assets/images/ThiernoHero.png"
 import Image1 from "../../assets/images/Image1.jpeg"
@@ -114,8 +115,8 @@ const Hero: React.FC = () => {
           {/* Main Image Container */}
           <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg z-10">
             <div className="relative overflow-hidden rounded-[40px] sm:rounded-[50px] shadow-2xl border border-white/50 bg-white">
-              <img
-                src={Image.src}
+              <NextImage
+                src={Image}
                 alt="Creative Professional - Data Scientist and Software Engineer"
                 className="relative z-10 w-full object-cover aspect-[4/5] hover:scale-105 transition-transform duration-700"
               />
@@ -134,9 +135,9 @@ const Hero: React.FC = () => {
 
             {/* Mini Gallery Thumbnails */}
             <div className="hidden lg:flex absolute -bottom-8 left-1/2 -translate-x-1/2 gap-3 z-30 p-2 bg-white/60 backdrop-blur-xl border border-white/40 shadow-xl rounded-2xl">
-              <img src={Image1.src} alt="Portfolio 1" className="w-12 h-12 rounded-lg object-cover opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer shadow-sm" />
-              <img src={Image2.src} alt="Portfolio 2" className="w-12 h-12 rounded-lg object-cover opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer shadow-sm" />
-              <img src={Image3.src} alt="Portfolio 3" className="w-12 h-12 rounded-lg object-cover opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer shadow-sm" />
+              <NextImage src={Image1} alt="Portfolio 1" width={48} height={48} className="rounded-lg object-cover opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer shadow-sm" />
+              <NextImage src={Image2} alt="Portfolio 2" width={48} height={48} className="rounded-lg object-cover opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer shadow-sm" />
+              <NextImage src={Image3} alt="Portfolio 3" width={48} height={48} className="rounded-lg object-cover opacity-80 hover:opacity-100 hover:scale-110 transition-all duration-300 cursor-pointer shadow-sm" />
             </div>
           </div>
         </div>
