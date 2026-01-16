@@ -50,18 +50,18 @@ const Hero: React.FC = () => {
                 SOFTWARE
               </span>
               <span className="block animate-in fade-in slide-in-from-left-8 duration-700 delay-300">
-                ENGINEER & DATA
+                
               </span>
               {/* Custom Orange Text */}
               <span className="block text-[#FA891A] animate-in fade-in slide-in-from-left-8 duration-700 delay-500">
-                SCIENTIST
+                ENGINEER
               </span>
             </h1>
           </div>
 
           {/* Description */}
           <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-xl mx-auto lg:mx-0 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-700">
-            Motivated software developer, co-founder, and instructor at Tech Nexus. Built 3 production-ready applications used globally. Passionate about building scalable, user-friendly solutions.
+            Motivated software developer, co-founder, and instructor at Tech Nexus. Built 3 production-ready applications used by significant clients. Passionate about building scalable, user-friendly solutions.
           </p>
 
           {/* CTA Buttons */}
@@ -88,17 +88,17 @@ const Hero: React.FC = () => {
           {/* Stats Section */}
           <div className="grid grid-cols-3 gap-6 pt-8 max-w-lg mx-auto lg:mx-0 border-t border-black/5 mt-8 animate-in fade-in zoom-in-95 duration-700 delay-1000">
             <div className="text-center lg:text-left">
-              <div className="text-3xl sm:text-4xl font-bold text-foreground">03+</div>
+              <div className="text-3xl sm:text-4xl font-bold text-foreground">01+</div>
               <div className="text-xs uppercase tracking-widest text-muted-foreground mt-1">Years Exp.</div>
             </div>
             <div className="text-center lg:text-left">
               {/* Custom Orange Stat */}
-              <div className="text-3xl sm:text-4xl font-bold text-[#FA891A]">10+</div>
+              <div className="text-3xl sm:text-4xl font-bold text-[#FA891A]">15+</div>
               <div className="text-xs uppercase tracking-widest text-muted-foreground mt-1">Projects</div>
             </div>
             <div className="text-center lg:text-left">
-              <div className="text-3xl sm:text-4xl font-bold text-foreground">16+</div>
-              <div className="text-xs uppercase tracking-widest text-muted-foreground mt-1">Live Users</div>
+              <div className="text-3xl sm:text-4xl font-bold text-foreground">5+</div>
+              <div className="text-xs uppercase tracking-widest text-muted-foreground mt-1">Clients</div>
             </div>
           </div>
         </div>

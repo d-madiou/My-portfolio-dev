@@ -13,6 +13,10 @@ import React from "react";
 import  Tolimo1  from '@/assets/images/tolimoo/1.png';
 import  Tolimo2  from '@/assets/images/tolimoo/2.png';
 import  Tolimo3 from '@/assets/images/tolimoo/3.png';
+import Tolimo4 from '@/assets/images/tolimoo/cv.png';
+import Tolimo5 from '@/assets/images/tolimoo/Mamou.png';
+import Tolimo6 from '@/assets/images/tolimoo/doudhal.jpeg';
+import Tolimo7 from '@/assets/images/tolimoo/aiu.png';
 
 
 const ABOUT_CONTENT: InfoCardData[] = [
@@ -142,7 +146,7 @@ export const PROJECTS_DATA: Project[] = [
   category: 'Full Stack',
   description: 'Gamified sports prediction platform with real-time match streaming, community fanzones, and competitive leaderboards for football fans.',
   longDescription: 'A comprehensive sports engagement platform that combines prediction challenges, live match streaming, and social features. Users compete in daily prediction challenges, watch live sports through multiple streaming sources, create and join fanzones, and climb global leaderboards while earning points and badges.',
-  image: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=2093&auto=format&fit=crop',
+  image: Tolimo3.src,
   technologies: [
     'Next.js 14',
     'TypeScript',
@@ -277,7 +281,7 @@ export const PROJECTS_DATA: Project[] = [
   category: 'Full Stack',
   description: 'TikTok-style dating app with AI-powered matching, WhatsApp-style stories, real-time messaging, and coin-based monetization system.',
   longDescription: 'A comprehensive dating platform combining modern social features with intelligent matching algorithms. Built with Django REST Framework backend and React Native (Expo) frontend, featuring swipe-based discovery, ephemeral stories, profile verification, and a unique coin-based messaging economy that drives engagement and monetization.',
-  image: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1000&auto=format&fit=crop', // Dating/romance themed image
+  image: 'https://i.pinimg.com/736x/c2/0c/63/c20c632882a9a3ce265a5b8e35c76da2.jpg', // Dating/romance themed image
   technologies: [
     'React Native (Expo)',
     'TypeScript',
@@ -296,8 +300,8 @@ export const PROJECTS_DATA: Project[] = [
     React.createElement(PythonIcon, { className: "w-6 h-6" }),
     React.createElement(DockerIcon, { className: "w-6 h-6" }),
   ],
-  githubUrl: 'https://github.com/yourusername/dating-app',
-  liveUrl: 'https://tomeetyours.app', // Or remove if not deployed yet
+  githubUrl: 'https://github.com/d-madiou/to-meet-yours',
+  liveUrl: 'https://github.com/d-madiou/to-meet-yours', // Or remove if not deployed yet
   features: [
     'TikTok-style vertical scrolling feed with full-screen profiles',
     'WhatsApp-inspired stories system (24-hour ephemeral content)',
@@ -439,85 +443,94 @@ export const PROJECTS_DATA: Project[] = [
   }
 },
   {
-    id: 'health-tracker',
-    title: 'Smart Health Tracking App',
+    id: 'doudhal-mentor-platform',
+    title: 'Doudhal: Mentor Marketplace',
     category: 'Mobile',
-    description: 'Cross-platform mobile app for tracking fitness goals with ML-powered insights and personalized workout plans.',
-    longDescription: 'A comprehensive health and fitness application built with React Native that helps users track their wellness journey. Features include activity tracking, nutrition logging, and AI-generated workout recommendations.',
-    image: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=1000&auto=format&fit=crop',
-    technologies: ['React Native', 'TypeScript', 'Node.js', 'PostgreSQL', 'TensorFlow', 'Docker'],
+    description: 'A cross-platform educational marketplace connecting students and parents with expert mentors for personalized learning.',
+    longDescription: 'Doudhal is a robust educational platform that facilitates mentor discovery and session booking. It features a sophisticated search engine for finding mentors by subject, a secure authentication system, and a real-time scheduling engine.',
+    image: Tolimo6.src, // A professional educational/mentoring image
+    technologies: ['React Native', 'Expo', 'Django', 'PostgreSQL', 'GraphQL', 'Docker'],
     techIcons: [
       React.createElement(ReactNativeIcon, { className: "w-6 h-6" }),
-      React.createElement(TypeScriptIcon, { className: "w-6 h-6" }),
-      React.createElement(NodeJSIcon, { className: "w-6 h-6" }),
-      React.createElement(PostgreSQLIcon, { className: "w-6 h-6" }),
-      React.createElement(TensorFlowIcon, { className: "w-6 h-6" }),
-      React.createElement(DockerIcon, { className: "w-6 h-6" }),
+      // React.createElement(ExpoIcon, { className: "w-6 h-6" }),
+      // React.createElement(DjangoIcon, { className: "w-6 h-6" }),
+      // React.createElement(PostgreSQLIcon, { className: "w-6 h-6" }),
+      // React.createElement(GraphQLIcon, { className: "w-6 h-6" }),
+      // React.createElement(DockerIcon, { className: "w-6 h-6" }),
     ],
-    githubUrl: 'https://github.com/yourusername/health-tracker',
-    liveUrl: 'https://apps.apple.com/health-tracker',
+    githubUrl: 'https://github.com/d-madiou/doudhal-backend',
+    liveUrl: 'https://github.com/d-madiou/doudhal-app', // Placeholder URL
     features: [
-      'Real-time activity and calorie tracking',
-      'Personalized workout plans using ML',
-      'Nutrition database with barcode scanner',
-      'Social features and challenges',
-      'Integration with wearable devices',
-      'Progress visualization and insights'
+      'Advanced mentor search and filtering by expertise',
+      'Real-time booking and scheduling system',
+      'Secure JWT-based authentication for parents and mentors',
+      'Personalized user dashboards and profile management',
+      'Optimized data fetching using GraphQL queries',
+      'Automated notifications via Celery background tasks'
     ],
-    challenges: 'Ensuring accurate calorie calculations and maintaining smooth performance while processing real-time sensor data from multiple wearable devices.',
-    outcome: 'Launched on iOS and Android with 10K+ downloads in first month. Featured in App Store as "App of the Day". 4.8-star average rating.',
-    duration: '8 months',
-    role: 'Lead Mobile Developer',
-    year: '2024'
+    challenges: 'The biggest challenge was establishing a strict data contract between the Django backend and React Native frontend. Implementing GraphQL helped resolve data over-fetching and simplified complex relationship queries between mentors and bookings.',
+    outcome: 'Successfully developed a high-performance MVP with a seamless connection between the mobile interface and the PostgreSQL database. The architecture is fully containerized and ready for scalable production deployment.',
+    duration: '6 months',
+    role: 'Full Stack Developer',
+    year: '2025'
   },
   {
-    id: 'data-visualization',
-    title: 'Interactive Data Visualization Dashboard',
-    category: 'Data Science',
-    description: 'Real-time analytics dashboard for visualizing complex datasets with interactive charts and predictive models.',
-    longDescription: 'An enterprise-grade analytics platform that transforms raw data into actionable insights. Built with modern web technologies and powered by advanced machine learning models for predictive analytics.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop',
-    technologies: ['React', 'Python', 'Flask', 'Pandas', 'TensorFlow', 'PostgreSQL'],
+  id: 'aiu-online-shop',
+  title: 'AIU Online Shop – Full-Stack E-Commerce Platform',
+  category: 'Full Stack',
+  description: 'A full-featured e-commerce platform with real-time notifications, admin dashboard, and automated email workflows.',
+  longDescription: 'AIU Online Shop is a production-ready, full-stack e-commerce platform designed to support customers, sellers, and administrators. It covers the entire shopping flow—from product discovery to checkout and order tracking—while providing real-time notifications, email automation, and a powerful SuperAdmin dashboard. Built with React, Redux, and Supabase, the system is scalable, modular, and optimized for performance.',
+  image: Tolimo7.src,
+  technologies: [
+    'React',
+    'Vite',
+    'Redux',
+    'Supabase',
+    'PostgreSQL',
+    'CSS3',
+    'Supabase Edge Functions'
+  ],
+  techIcons: [
+    React.createElement(ReactIcon, { className: "w-6 h-6" }),
+    React.createElement(ViteIcon, { className: "w-6 h-6" }),
+    // React.createElement(ReduxIcon, { className: "w-6 h-6" }),
+    // React.createElement(SupabaseIcon, { className: "w-6 h-6" }),
+    // React.createElement(PostgreSQLIcon, { className: "w-6 h-6" }),
+  ],
+  githubUrl: 'https://github.com/d-madiou/aiu-online-shop',
+  liveUrl: 'https://www.aiubusinesshub.com',
+  features: [
+    'Product catalog with category filtering and search',
+    'Redux-powered shopping cart and checkout flow',
+    'User authentication with Supabase',
+    'Order history and order status tracking',
+    'Real-time order notifications',
+    'Automated order confirmation and status update emails',
+    'SuperAdmin dashboard with users, sellers, stores, and analytics',
+    'Multi-vendor architecture',
+    'Responsive, mobile-first UI'
+  ],
+  challenges: 'Designing a scalable multi-role system while maintaining real-time updates and reliable email automation using serverless functions.',
+  outcome: 'Delivered a complete e-commerce solution with real-time communication, admin management tools, and a clean, modular architecture suitable for production deployment.',
+  duration: '4 months',
+  role: 'Full-Stack Developer',
+  year: '2024-2025'
+},
+
+  {
+    id: 'cv-builder generator',
+    title: 'Resume & CV Builder',
+    category: 'Frontend',
+    description: 'A frontend resume and CV builder with beautiful templates for eveyone.',
+    longDescription: 'A modern web application that helps create stunning resumes by providing a user-friendly interface and customizable templates.',
+    image: Tolimo4.src,
+    technologies: ['React Js', 'Vercel'],
     techIcons: [
       React.createElement(ReactIcon, { className: "w-6 h-6" }),
-      React.createElement(PythonIcon, { className: "w-6 h-6" }),
-      React.createElement(FlaskIcon, { className: "w-6 h-6" }),
-      React.createElement(PandasIcon, { className: "w-6 h-6" }),
-      React.createElement(TensorFlowIcon, { className: "w-6 h-6" }),
-      React.createElement(PostgreSQLIcon, { className: "w-6 h-6" }),
+      React.createElement(ReactIcon, { className: "w-6 h-6" }),
     ],
-    githubUrl: 'https://github.com/yourusername/data-viz',
-    liveUrl: 'https://dataviz-demo.com',
-    features: [
-      'Real-time data streaming and visualization',
-      'Custom chart builder with drag-and-drop',
-      'Predictive analytics with ML models',
-      'Export reports in multiple formats',
-      'Role-based access control',
-      'API for data integration'
-    ],
-    challenges: 'Processing and visualizing millions of data points in real-time without compromising performance or user experience.',
-    outcome: 'Reduced data analysis time by 70% for client teams. Successfully handling 1M+ data points with sub-100ms query times.',
-    duration: '5 months',
-    role: 'Data Engineer & Frontend Developer',
-    year: '2023'
-  },
-  {
-    id: 'portfolio-builder',
-    title: 'AI Resume & Portfolio Builder',
-    category: 'Frontend',
-    description: 'Smart portfolio builder with AI-generated content suggestions and beautiful templates for developers.',
-    longDescription: 'A modern web application that helps developers create stunning portfolios and resumes in minutes. Features AI-powered content generation, customizable templates, and one-click deployment.',
-    image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1000&auto=format&fit=crop',
-    technologies: ['Next.js', 'TypeScript', 'TailwindCSS', 'Figma', 'Vercel'],
-    techIcons: [
-      React.createElement(NextJSIcon, { className: "w-6 h-6" }),
-      React.createElement(TypeScriptIcon, { className: "w-6 h-6" }),
-      React.createElement(TailwindCSSIcon, { className: "w-6 h-6" }),
-      React.createElement(FigmaIcon, { className: "w-6 h-6" }),
-    ],
-    githubUrl: 'https://github.com/yourusername/portfolio-builder',
-    liveUrl: 'https://portfolio-builder.vercel.app',
+    githubUrl: 'https://github.com/d-madiou/CV-Application',
+    liveUrl: 'https://rapidcv-phi.vercel.app/',
     features: [
       'AI-powered content suggestions',
       '20+ professional templates',
@@ -526,75 +539,76 @@ export const PROJECTS_DATA: Project[] = [
       'Custom domain support',
       'SEO optimization built-in'
     ],
-    challenges: 'Creating a flexible template system that allows deep customization while maintaining design consistency and performance.',
-    outcome: 'Helped 5000+ developers create professional portfolios. Featured on Product Hunt with 500+ upvotes.',
-    duration: '3 months',
+    challenges: 'it was my first frontend project, so I had to learn a lot about React and frontend development in general.',
+    outcome: 'Help create professional cv.',
+    duration: '1 months',
     role: 'Frontend Developer & Designer',
     year: '2024'
   },
   {
-    id: 'ml-pipeline',
-    title: 'Automated ML Pipeline Platform',
-    category: 'Data Science',
-    description: 'End-to-end machine learning pipeline automation platform with model monitoring and deployment.',
-    longDescription: 'A comprehensive MLOps platform that automates the entire machine learning lifecycle from data preprocessing to model deployment and monitoring. Built for data science teams to collaborate efficiently.',
-    image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=1000&auto=format&fit=crop',
-    technologies: ['Python', 'PyTorch', 'Docker', 'Google Cloud', 'Flask', 'PostgreSQL'],
+    id: 'mamou-digital-portal',
+    title: 'Mamou Digital City Portal',
+    category: 'Full Stack',
+    description: 'A comprehensive regional information platform for the city of Mamou, integrating tourism, municipal administration, and local news.',
+    longDescription: 'Designed and developed a dynamic web portal for the city of Mamou, Guinea. The platform serves as a centralized hub for municipal services, promotion of the Fouta-Djalon region\'s tourism, educational tracking, and real-time local news using a robust Django-React architecture.',
+    image: Tolimo5.src,
+    technologies: ['Django', 'Django REST Framework', 'React', 'Tailwind CSS', 'Framer Motion', 'PostgreSQL'],
     techIcons: [
-      React.createElement(PythonIcon, { className: "w-6 h-6" }),
-      React.createElement(PyTorchIcon, { className: "w-6 h-6" }),
-      React.createElement(DockerIcon, { className: "w-6 h-6" }),
-      React.createElement(GoogleCloudIcon, { className: "w-6 h-6" }),
-      React.createElement(FlaskIcon, { className: "w-6 h-6" }),
-      React.createElement(PostgreSQLIcon, { className: "w-6 h-6" }),
+      // React.createElement(SiDjango, { className: "w-6 h-6" }),
+      // React.createElement(SiReact, { className: "w-6 h-6" }),
+      // React.createElement(SiTailwindcss, { className: "w-6 h-6" }),
+      // React.createElement(SiPostgresql, { className: "w-6 h-6" }),
+      // React.createElement(SiFramer, { className: "w-6 h-6" }),
+      // React.createElement(SiPython, { className: "w-6 h-6" }),
     ],
-    githubUrl: 'https://github.com/yourusername/ml-pipeline',
+    githubUrl: 'https://github.com/d-madiou/Mamou-tourism',
+    liveUrl: 'https://villedemamou.org',
     features: [
-      'Automated data preprocessing pipelines',
-      'Model training with hyperparameter tuning',
-      'Real-time model performance monitoring',
-      'One-click model deployment',
-      'A/B testing framework',
-      'Collaborative experiment tracking'
+      'Comprehensive RESTful Backend (News, Education, Mayor\'s Office, Statistics)',
+      'Dynamic Hero section with automated image rotation and smooth transitions',
+      'Administrative dashboard for real-time regional data management',
+      'Mobile-responsive UI with optimized local SEO',
+      'Custom pagination and filtering for diverse content sections',
+      'Integrated communication tools (WhatsApp Click-to-Chat API & Social Media)'
     ],
-    challenges: 'Building a scalable infrastructure that can handle multiple concurrent model training jobs while maintaining cost efficiency.',
-    outcome: 'Reduced model deployment time from weeks to hours. Currently serving 15+ production ML models with 99.95% uptime.',
-    duration: '7 months',
-    role: 'ML Engineer & DevOps',
-    year: '2023'
+    challenges: 'Designing a scalable relational database to handle disparate sectors like education and governance while maintaining high performance and fluid UI animations on low-bandwidth connections.',
+    outcome: 'Successfully modernized information access for citizens and tourists. Reduced data retrieval latency through optimized DRF serializers and custom pagination.',
+    duration: '6 months',
+    role: 'Full Stack Developer',
+    year: '2024'
   },
   {
-    id: 'social-network',
-    title: 'Niche Social Network Platform',
+    id: 'twitch-clone',
+    title: 'Live Streaming Platform',
     category: 'Full Stack',
-    description: 'Real-time social networking platform for creative professionals with integrated portfolio showcase.',
-    longDescription: 'A specialized social network designed for creative professionals to connect, collaborate, and showcase their work. Features real-time messaging, project collaboration tools, and an integrated marketplace.',
-    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop',
-    technologies: ['React', 'Node.js', 'TypeScript', 'PostgreSQL', 'Docker', 'Google Cloud'],
+    description: 'A full-featured live streaming application with real-time video broadcasting, chat, and community management tools.',
+    longDescription: 'A production-ready clone of Twitch built with Next.js 14. It allows users to broadcast live streams using RTMP & WHIP protocols through OBS. The platform features ultra-low latency streaming, a robust real-time chat system, comprehensive streamer dashboards, and secure authentication.',
+    image: 'https://i.pinimg.com/1200x/4c/ee/1f/4cee1f8e296599bd685011318f1dc2eb.jpg',
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Prisma', 'MySQL', 'Clerk', 'LiveKit'],
     techIcons: [
+      React.createElement(NextJSIcon, { className: "w-6 h-6" }),
       React.createElement(ReactIcon, { className: "w-6 h-6" }),
-      React.createElement(NodeJSIcon, { className: "w-6 h-6" }),
       React.createElement(TypeScriptIcon, { className: "w-6 h-6" }),
-      React.createElement(PostgreSQLIcon, { className: "w-6 h-6" }),
-      React.createElement(DockerIcon, { className: "w-6 h-6" }),
-      React.createElement(GoogleCloudIcon, { className: "w-6 h-6" }),
+      // React.createElement(TailwindIcon, { className: "w-6 h-6" }),
+      // React.createElement(PrismaIcon, { className: "w-6 h-6" }),
+      // React.createElement(MySQLIcon, { className: "w-6 h-6" }),
     ],
-    githubUrl: 'https://github.com/yourusername/social-network',
-    liveUrl: 'https://creative-network.com',
+    githubUrl: 'https://github.com/d-madiou/twitch-clone',
+    liveUrl: 'https://github.com/d-madiou/twitch-clone',
     features: [
-      'Real-time messaging and notifications',
-      'Project collaboration workspace',
-      'Integrated portfolio galleries',
-      'Job board and freelance marketplace',
-      'Event management system',
-      'Advanced search and filtering'
+      'Live streaming via RTMP & WHIP protocols',
+      'Real-time chat with member-only & delay modes',
+      'Authentication & Authorization via Clerk',
+      'Streamer dashboard with analytics',
+      'Following, Blocking & Kick systems',
+      'Real-time ingress & webhook synchronization'
     ],
-    challenges: 'Implementing efficient real-time communication at scale while ensuring data privacy and security compliance.',
-    outcome: 'Growing community of 25K+ creative professionals. Processing 1M+ messages per month with 99.9% delivery rate.',
-    duration: '10 months',
-    role: 'Full Stack Developer & Technical Lead',
-    year: '2023'
-  }
+    challenges: 'Handling low-latency video transmission protocols (RTMP/WHIP) and synchronizing real-time webhooks between the streaming engine and the database.',
+    outcome: 'Built a scalable streaming platform capable of handling concurrent broadcasts with sub-second latency and instant chat delivery.',
+    duration: '3 month',
+    role: 'Full Stack Developer',
+    year: '2025'
+}
 ];
 
 export { ABOUT_CONTENT };
@@ -604,6 +618,12 @@ export type { InfoCardData };
 
 
 // Add this to your constants.ts file
+import blog1 from '../assets/images/blog/aiubusiness.jpeg'
+import blog2 from '../assets/images/ThiernoHero.png'
+import blog3 from '../assets/images/blog/awrds.jpeg'
+import blog4 from '../assets/images/blog/gobackend.jpeg'
+import blog5 from '../assets/images/blog/live.png'
+import blog6 from '../assets/images/blog/workshop.png'
 
 // Blog Post Type
 export interface BlogPost {
@@ -628,111 +648,210 @@ export interface BlogPost {
 // Blog Posts Data
 export const BLOG_POSTS: BlogPost[] = [
   {
-    id: 'nextjs-15-features',
-    title: 'Next.js 15: Revolutionary Features You Need to Know',
-    excerpt: 'Discover the game-changing features in Next.js 15 that will transform how you build modern web applications.',
-    content: 'Next.js 15 introduces groundbreaking improvements including enhanced Server Components, improved caching strategies, and revolutionary performance optimizations...',
-    category: 'Web Development',
-    tags: ['Next.js', 'React', 'Web Dev', 'Performance'],
-    author: {
-      name: 'Thierno',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop',
-      role: 'Full Stack Developer'
-    },
-    image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=1200&auto=format&fit=crop',
-    date: 'Dec 20, 2024',
-    readTime: '8 min read',
-    views: '12.5K',
-    likes: 234
+  id: 'aiu-ecommerce-launch',
+  title: 'Launching the AIU E-Commerce Platform: Lessons from Production Day',
+  excerpt: 'What it really takes to launch a production-ready e-commerce platform as a full-stack developer—from real-time systems to handling real users on day one.',
+  content: `
+Launching the AIU Online Shop was more than just deploying code—it was a real-world test of architecture, performance, and decision-making under pressure.
+
+As the lead developer, I was responsible for the full lifecycle of the platform: frontend architecture, backend integration, real-time notifications, and admin tooling. On launch day, the platform went live to real users, including multiple active stores and student customers.
+
+One of the biggest challenges was ensuring reliability during order placement. I implemented real-time order notifications using Supabase listeners, allowing admins to receive instant updates when orders were created. This helped detect issues early and ensured confidence during the first live transactions.
+
+Email automation was another critical component. Using Supabase Edge Functions, I built transactional email workflows for order confirmations and status updates. This removed manual intervention and gave users immediate feedback after checkout.
+
+From a frontend perspective, Redux played a major role in maintaining a consistent shopping experience. Cart state, checkout flow, and product filtering had to remain stable even during rapid navigation and refreshes—especially important on mobile devices.
+
+The SuperAdmin dashboard became essential during launch. Real-time metrics, user management, and store tracking allowed us to monitor platform health instantly without querying the database manually.
+
+Launch day reinforced one key lesson: production systems are not just about features—they are about observability, reliability, and user trust. Seeing real users complete purchases successfully validated both the technical decisions and the architectural foundation of the platform.
+  `,
+  category: 'Web Development',
+  tags: [
+    'React',
+    'Supabase',
+    'E-Commerce',
+    'Full Stack',
+    'Real-Time Systems',
+    'Production'
+  ],
+  author: {
+    name: 'Thierno Madiou Diallo',
+    avatar: blog2.src,
+    role: 'Full Stack Software Engineer'
   },
+  image: blog1.src,
+  date: 'August 2025',
+  readTime: '6 min read',
+  views: '3.2K',
+  likes: 186
+},
+
   {
-    id: 'ml-production-guide',
-    title: 'From Jupyter to Production: ML Deployment Guide',
-    excerpt: 'A comprehensive guide to deploying machine learning models from notebooks to production-ready APIs.',
-    content: 'Learn how to bridge the gap between data science experimentation and production deployment with practical strategies and best practices...',
-    category: 'Machine Learning',
-    tags: ['ML', 'Python', 'DevOps', 'Docker'],
-    author: {
-      name: 'Thierno',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop',
-      role: 'Data Scientist'
-    },
-    image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=1200&auto=format&fit=crop',
-    date: 'Dec 18, 2024',
-    readTime: '12 min read',
-    views: '8.3K',
-    likes: 189
+  id: 'transition-to-golang-fintech',
+  title: 'From Django to Golang: Relearning Backend Engineering by Building a Fintech System',
+  excerpt: 'Why I deliberately stepped out of my comfort zone, left Django behind for a while, and started learning Golang by designing a real-world fintech backend from first principles.',
+  content: `
+After spending years building backend systems with Python and Django, I reached a point where writing APIs felt comfortable—almost too comfortable. While that confidence is valuable, I realized something was missing: a deeper, lower-level understanding of how backend systems are designed, structured, and protected at scale.
+
+That realization led me to Golang.
+
+Unlike Django, which provides many abstractions out of the box, Go forces you to be explicit. Error handling is deliberate. Concurrency is not hidden. Project structure is a design choice, not a default. At first, this felt unfamiliar—but quickly, it became reassuring.
+
+Instead of jumping straight into frameworks, I decided to learn Go the same way real systems are built: by designing a fintech backend from scratch. Not a toy app, but a system that respects real-world constraints—money movement, consistency, auditability, and failure handling.
+
+The first major shift was architectural. Rather than relying on a single “balance” field, I learned why real financial systems use ledgers as the source of truth. Money is never updated—it is recorded. Balances are derived, transactions are atomic, and history is immutable. These ideas aren’t Go-specific, but Go’s simplicity makes them easier to model cleanly and correctly.
+
+Another key lesson was intentionality. In Go, nothing happens “by magic.” If something fails, you must handle it. If data moves, you must define how. This forced me to slow down, think like a systems engineer, and design before coding—a habit I plan to carry into every future project.
+
+This transition is not about abandoning Python or Django. It’s about expanding how I think as an engineer. Go is helping me sharpen fundamentals: domain modeling, clear boundaries, predictable behavior, and respect for correctness—especially in systems that handle money.
+
+I’m documenting this journey not as a Golang expert, but as an engineer deliberately choosing discomfort to grow. The goal is simple: become someone who can design, reason about, and build reliable backend systems—regardless of language or framework.
+  `,
+  category: 'Backend Engineering',
+  tags: [
+    'Golang',
+    'Backend Engineering',
+    'Fintech',
+    'System Design',
+    'Learning Journey',
+    'Software Architecture'
+  ],
+  author: {
+    name: 'Thierno Madiou Diallo',
+    avatar: blog4.src,
+    role: 'Backend Engineer'
   },
+  image: blog4.src,
+  date: 'Jan 2026',
+  readTime: '5 min read',
+  views: '—',
+  likes: 0
+},
+
   {
-    id: 'typescript-advanced-patterns',
-    title: 'Advanced TypeScript Patterns Every Developer Should Master',
-    excerpt: 'Elevate your TypeScript skills with advanced patterns, generics, and type manipulation techniques.',
-    content: 'Dive deep into advanced TypeScript concepts including conditional types, mapped types, and template literal types that will make your code more robust...',
-    category: 'TypeScript',
-    tags: ['TypeScript', 'JavaScript', 'Programming', 'Best Practices'],
-    author: {
-      name: 'Thierno',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop',
-      role: 'Software Engineer'
-    },
-    image: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?q=80&w=1200&auto=format&fit=crop',
-    date: 'Dec 15, 2024',
-    readTime: '10 min read',
-    views: '15.2K',
-    likes: 312
+  id: 'hult-prize-aiu-2025',
+  title: 'Winning the HULT Prize AIU 2025 with TechNexus',
+  excerpt: 'How a 4-minute pitch, strong engineering vision, and teamwork led TechNexus to win the HULT Prize Campus Competition 2025 at AIU.',
+  content: `
+On December 22nd, our team at TechNexus participated in the HULT Prize AIU Campus Startups Competition 2025—an intense, high-impact startup pitching event focused on innovation and social impact.
+
+We presented our solution, Poultry Farm Management System, a technology-driven platform designed to modernize how poultry farms operate. The challenge was clear: communicate a complex, real-world problem and a scalable technical solution in just four minutes.
+
+As the technical lead, my focus was on clearly explaining how our system leveraged software engineering principles to improve efficiency, monitoring, and decision-making for farmers. Despite the tight time constraint, we delivered a clear and compelling pitch that combined business viability with strong technical execution.
+
+Among several impressive teams, TechNexus was honored to be selected as the HULT Prize Champions 2025 at Albukhary International University. This recognition validated not only our startup idea but also the real-world relevance of the technology behind it.
+
+This win marked an important milestone for our team and qualified us for the national stage. More importantly, it reinforced a key lesson: impactful engineering is not only about writing code, but also about communicating vision, solving meaningful problems, and executing under pressure.
+
+I’m incredibly grateful to my teammates—Fauzia Ahmed, Oussama Chakeur, Khi Nuu Phyu Sin, and Mustafa Yahya—for their dedication, teamwork, and shared belief in the project. We’re now preparing for the next stage with the same mindset: build, test, improve, and show up stronger.
+  `,
+  category: 'Startup & Innovation',
+  tags: [
+    'Hult Prize',
+    'Startup',
+    'Innovation',
+    'TechNexus',
+    'Engineering',
+    'Competition'
+  ],
+  author: {
+    name: 'Thierno Madiou Diallo',
+    avatar: blog2.src,
+    role: 'Co-Founder & Software Engineer'
   },
+  image: blog3.src,
+  date: 'Dec 22, 2025',
+  readTime: '4 min read',
+  views: '2.1K',
+  likes: 312
+},
+
   {
-    id: 'react-native-performance',
-    title: 'React Native Performance: From 60fps to Buttery Smooth',
-    excerpt: 'Optimize your React Native apps for maximum performance with proven techniques and real-world examples.',
-    content: 'Discover performance optimization strategies that will transform your React Native applications from sluggish to lightning fast...',
-    category: 'Mobile Development',
-    tags: ['React Native', 'Mobile', 'Performance', 'Optimization'],
-    author: {
-      name: 'Thierno',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop',
-      role: 'Mobile Developer'
-    },
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1200&auto=format&fit=crop',
-    date: 'Dec 12, 2024',
-    readTime: '9 min read',
-    views: '9.7K',
-    likes: 276
+  id: 'rtmp-streaming-like-twitch',
+  title: 'Building RTMP Live Streaming Like Twitch: From Stream Keys to Live Rooms',
+  excerpt: 'A deep dive into building an RTMP-based live streaming system using LiveKit, Next.js, and Django—understanding how real platforms like Twitch work under the hood.',
+  content: `
+Live streaming platforms like Twitch handle millions of concurrent streams every day—but how does a streamer actually go live, and how does each stream remain isolated in its own room?
+
+During a recent project contribution, I was tasked with building an RTMP streaming feature that allows users to go live using tools like OBS, webcams, or laptops—similar to Twitch.
+
+The core requirements were simple on paper but complex in execution:
+• Each stream must have a unique ID  
+• A user cannot have more than one active live stream  
+• Every time a stream ends, a new stream URL and key must be generated  
+
+Before writing any code, I focused on understanding the fundamentals. I first studied what RTMP actually is and how real-time video data is transmitted. Then, I explored how stream URLs and stream keys authenticate broadcasting tools like OBS.
+
+Once the concept was clear, I designed the system logic to enforce a single active stream per user. If a user attempted to go live again, the system would automatically invalidate the previous stream and generate fresh credentials.
+
+For implementation, I used the LiveKit SDK inside a Next.js server action to handle stream creation securely. Stream metadata—such as stream keys and URLs—was persisted using Prisma with a MySQL database. To strengthen my backend skills, I later rebuilt the same functionality using Django REST Framework, reinforcing my understanding of system design across different stacks.
+
+The result was a private live room per creator, complete with secure authentication and lifecycle management—mirroring how large-scale platforms like Twitch manage real-time streaming.
+
+This project significantly deepened my understanding of real-time systems, authentication flows, and backend-driven streaming architectures. More importantly, it taught me how to break down complex infrastructure problems into manageable engineering decisions.
+  `,
+  category: 'Backend & Real-Time Systems',
+  tags: [
+    'RTMP',
+    'Live Streaming',
+    'Next.js',
+    'LiveKit',
+    'Django',
+    'Prisma',
+    'System Design',
+    'Learning in Public'
+  ],
+  author: {
+    name: 'Thierno Madiou Diallo',
+    avatar: blog1.src,
+    role: 'Junior Software Engineer (Frontend & Backend)'
   },
+  image: blog5.src,
+  date: 'Jan 2026',
+  readTime: '5 min read',
+  views: '1.9K',
+  likes: 271
+},
   {
-    id: 'ai-code-review',
-    title: 'AI-Powered Code Reviews: The Future of Software Quality',
-    excerpt: 'How artificial intelligence is revolutionizing code review processes and improving software quality at scale.',
-    content: 'Explore how AI tools are transforming traditional code review workflows and helping teams catch bugs earlier...',
-    category: 'Artificial Intelligence',
-    tags: ['AI', 'Code Quality', 'Automation', 'DevOps'],
-    author: {
-      name: 'Thierno',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop',
-      role: 'AI Engineer'
-    },
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop',
-    date: 'Dec 10, 2024',
-    readTime: '7 min read',
-    views: '11.4K',
-    likes: 198
+  id: 'community-teaching-tech-nexus-aiu',
+  title: 'Teaching, Mentorship, and Community Impact Through TechNexus',
+  excerpt: 'A month of community service teaching databases, SQL, and Python—helping students build strong foundations in computer science.',
+  content: `
+Throughout August, I had the opportunity to contribute to my university’s tech community through teaching and mentorship—an experience that reinforced my belief that strong engineers also uplift others.
+
+Alongside my teammates at TechNexus Club, I co-instructed an Introduction to Database Management & SQL program. Our goal was to help students understand not just SQL syntax, but the fundamentals of data modeling, relational design, and how real-world systems store and retrieve information efficiently.
+
+In parallel, I served as an instructor for Module 3: PCEP Entry-Level Python, organized by the School of Computing and Informatics at Albukhary International University (AIU). This program focused on building a strong foundation in Python programming, covering core concepts such as variables, control flow, functions, and problem-solving techniques.
+
+Teaching these sessions required breaking down complex ideas into simple, practical explanations—an essential skill for any software engineer working in teams or mentoring juniors. It also gave me valuable insight into how students approach problem-solving and where common learning gaps exist.
+
+Beyond technical skills, these sessions were about building confidence. Many participants were writing their first SQL queries or Python scripts, and seeing their progress over the course of the program was incredibly rewarding.
+
+This month of community service reaffirmed my commitment to lifelong learning and knowledge sharing. As I continue growing as a software engineer, I aim to remain actively involved in teaching, mentoring, and contributing to developer communities.
+  `,
+  category: 'Education & Community',
+  tags: [
+    'Tech Education',
+    'Community Work',
+    'Teaching',
+    'SQL',
+    'Python',
+    'Databases',
+    'TechNexus',
+    'AIU',
+    'Mentorship'
+  ],
+  author: {
+    name: 'Thierno Madiou Diallo',
+    avatar: blog2.src,
+    role: 'Software Engineer & Instructor'
   },
-  {
-    id: 'database-scaling-strategies',
-    title: 'Database Scaling: Strategies for Growing Applications',
-    excerpt: 'Master database scaling techniques to handle millions of users without breaking a sweat.',
-    content: 'Learn proven strategies for scaling your database architecture from startup to enterprise scale...',
-    category: 'Backend',
-    tags: ['Database', 'Scaling', 'PostgreSQL', 'Architecture'],
-    author: {
-      name: 'Thierno',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop',
-      role: 'Backend Engineer'
-    },
-    image: 'https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=1200&auto=format&fit=crop',
-    date: 'Dec 8, 2024',
-    readTime: '11 min read',
-    views: '7.9K',
-    likes: 156
-  }
+  image: blog6.src,
+  date: 'Aug 2025',
+  readTime: '4 min read',
+  views: '1.6K',
+  likes: 198
+},
+
 ];

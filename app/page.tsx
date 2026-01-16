@@ -10,6 +10,7 @@ import Projects from "@/components/layout/Projects"
 import Blog from "@/components/layout/Blog"
 import Contact from "@/components/layout/Contact"
 import Footer from "@/components/layout/Footer"
+import Certificates from "@/components/layout/Certificates"
 
 export default function Home() {
   return (
@@ -70,6 +71,10 @@ export default function Home() {
         
         <section id="about">
           <AboutSection />
+        </section>
+
+        <section id="skills">
+          <Certificates />
         </section>
         
         <section id="services">

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { SparkleIcon } from './Icon'; // Assuming this exists based on your code
 import { ArrowUpRight } from 'lucide-react';
+import About1 from '../../assets/images/About1.png'; // Example image import
 
 // --- DEFINING DATA LOCALLY FOR EASY EDITING ---
 const SKILLS_DATA = [
@@ -69,7 +70,7 @@ const SkillsSection: React.FC = () => {
               <div className="absolute inset-0">
                  {/* Image */}
                  <img 
-                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop" 
+                    src={About1.src} 
                     alt="Technical Mastery" 
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   />

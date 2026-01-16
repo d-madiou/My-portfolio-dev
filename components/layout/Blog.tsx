@@ -205,7 +205,7 @@ const BlogReaderModal: React.FC<{ post: BlogPost; onClose: () => void }> = ({ po
                   <div className="h-px bg-black/5 w-full"></div>
 
                   {/* Stats */}
-                  <div className="grid grid-cols-2 gap-4">
+                  {/* <div className="grid grid-cols-2 gap-4">
                     <div className="p-3 bg-white rounded border border-black/5 text-center shadow-sm">
                       <div className="text-lg font-bold text-zinc-900">{post.views}</div>
                       <div className="text-[10px] text-zinc-400 uppercase">Views</div>
@@ -214,7 +214,7 @@ const BlogReaderModal: React.FC<{ post: BlogPost; onClose: () => void }> = ({ po
                       <div className="text-lg font-bold text-[#FA891A]">{post.likes}</div>
                       <div className="text-[10px] text-zinc-400 uppercase">Likes</div>
                     </div>
-                  </div>
+                  </div> */}
                </div>
             </div>
 

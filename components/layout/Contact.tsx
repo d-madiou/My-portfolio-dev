@@ -169,8 +169,8 @@ const Contact: React.FC = () => {
             <div className="grid grid-cols-2 gap-3">
               <SocialButton icon={<GithubIcon className="w-5 h-5" />} label="GitHub" href="https://github.com/d-madiou" />
               <SocialButton icon={<LinkedInIcon className="w-5 h-5" />} label="LinkedIn" href="https://linkedin.com/in/thierno-madiou-diallo-99583124b" />
-              <SocialButton icon={<TwitterIcon className="w-5 h-5" />} label="Twitter" href="https://twitter.com" />
-              <SocialButton icon={<InstagramIcon className="w-5 h-5" />} label="Instagram" href="https://instagram.com" />
+              <SocialButton icon={<TwitterIcon className="w-5 h-5" />} label="Twitter" href="https://x.com" />
+              <SocialButton icon={<InstagramIcon className="w-5 h-5" />} label="Instagram" href="https://www.instagram.com/its_thierno_224?igsh=NG1zbGRkMWQ5Zjlj&utm_source=qr" />
             </div>
           </div>
         </div>
@@ -204,7 +204,7 @@ const Contact: React.FC = () => {
                       onChange={handleChange}
                       required
                       className="w-full bg-secondary/50 border border-black/10 rounded px-4 py-3 text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-[#FA891A]/50 focus:bg-white transition-colors"
-                      placeholder="John Doe"
+                      placeholder="Thierno Diallo"
                     />
                   </div>
                   <div className="space-y-2">
@@ -219,7 +219,7 @@ const Contact: React.FC = () => {
                       onChange={handleChange}
                       required
                       className="w-full bg-secondary/50 border border-black/10 rounded px-4 py-3 text-foreground placeholder-muted-foreground/50 focus:outline-none focus:border-[#FA891A]/50 focus:bg-white transition-colors"
-                      placeholder="john@example.com"
+                      placeholder="madioudiallo846@gmail.com"
                     />
                   </div>
                 </div>

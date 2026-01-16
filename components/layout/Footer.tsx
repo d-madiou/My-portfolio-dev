@@ -121,21 +121,21 @@ const Footer: React.FC = () => {
             <div>
               <h4 className="text-zinc-900 font-bold mb-6">Explore</h4>
               <ul className="space-y-2">
-                <FooterLink href="#home">Home</FooterLink>
-                <FooterLink href="#about">About</FooterLink>
-                <FooterLink href="#services">Services</FooterLink>
-                <FooterLink href="#projects">Work</FooterLink>
-                <FooterLink href="#contact">Contact</FooterLink>
+                <FooterLink href="home">Home</FooterLink>
+                <FooterLink href="about">About</FooterLink>
+                <FooterLink href="services">Services</FooterLink>
+                <FooterLink href="projects">Work</FooterLink>
+                <FooterLink href="contact">Contact</FooterLink>
               </ul>
             </div>
 
             <div>
               <h4 className="text-zinc-900 font-bold mb-6">Services</h4>
               <ul className="space-y-2">
-                <FooterLink href="#services">Development</FooterLink>
-                <FooterLink href="#services">Design System</FooterLink>
-                <FooterLink href="#services">Consulting</FooterLink>
-                <FooterLink href="#services">Strategy</FooterLink>
+                <FooterLink href="services">Development</FooterLink>
+                <FooterLink href="services">Design System</FooterLink>
+                <FooterLink href="services">Consulting</FooterLink>
+                <FooterLink href="services">Strategy</FooterLink>
               </ul>
             </div>
 
@@ -143,9 +143,9 @@ const Footer: React.FC = () => {
               <h4 className="text-zinc-900 font-bold mb-6">Connect</h4>
               <div className="flex flex-wrap gap-3">
                 <SocialLink href="https://github.com/d-madiou" label="GitHub" icon={<Github className="w-4 h-4" />} />
-                <SocialLink href="https://linkedin.com" label="LinkedIn" icon={<Linkedin className="w-4 h-4" />} />
-                <SocialLink href="https://twitter.com" label="Twitter" icon={<Twitter className="w-4 h-4" />} />
-                <SocialLink href="https://instagram.com" label="Instagram" icon={<Instagram className="w-4 h-4" />} />
+                <SocialLink href="https://www.linkedin.com/in/thierno-madiou-diallo-99583124b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" label="LinkedIn" icon={<Linkedin className="w-4 h-4" />} />
+                <SocialLink href="https://x.com" label="Twitter" icon={<Twitter className="w-4 h-4" />} />
+                <SocialLink href="https://www.instagram.com/its_thierno_224?igsh=NG1zbGRkMWQ5Zjlj&utm_source=qr" label="Instagram" icon={<Instagram className="w-4 h-4" />} />
               </div>
               <div className="mt-6">
                  <p className="text-xs text-zinc-400 mb-2">Email me directly</p>

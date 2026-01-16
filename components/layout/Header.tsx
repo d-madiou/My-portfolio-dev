@@ -106,19 +106,19 @@ const Header: React.FC = () => {
 
           {/* Social Icons & Theme Toggle */}
           <div className="hidden lg:flex items-center gap-1">
-            <SocialIcon label="X (Twitter)" href="https://twitter.com/yourhandle">
+            <SocialIcon label="X (Twitter)" href="x.com">
               <XIcon className="h-4 w-4" />
             </SocialIcon>
-            <SocialIcon label="Facebook" href="https://facebook.com/yourpage">
+            <SocialIcon label="Facebook" href="https://www.facebook.com/share/1DnZE4gG3Z/?mibextid=wwXIfr">
               <FacebookIcon className="h-4 w-4" />
             </SocialIcon>
-            <SocialIcon label="Instagram" href="https://instagram.com/yourhandle">
+            <SocialIcon label="Instagram" href="https://www.instagram.com/its_thierno_224?igsh=NG1zbGRkMWQ5Zjlj&utm_source=qr">
               <InstagramIcon className="h-4 w-4" />
             </SocialIcon>
             <SocialIcon label="GitHub" href="https://github.com/yourusername">
               <GithubIcon className="h-4 w-4" />
             </SocialIcon>
-            <SocialIcon label="LinkedIn" href="https://linkedin.com/in/yourprofile">
+            <SocialIcon label="LinkedIn" href="https://www.linkedin.com/in/thierno-madiou-diallo-99583124b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">
               <LinkedInIcon className="h-4 w-4" />
             </SocialIcon>
             
@@ -157,13 +157,13 @@ const Header: React.FC = () => {
 
               <div className="flex flex-wrap items-center gap-4 pt-6 mt-4 border-t border-black/5 justify-between">
                 <div className="flex gap-2">
-                    <SocialIcon label="X (Twitter)" href="https://twitter.com/yourhandle">
+                    <SocialIcon label="X (Twitter)" href="https://x.com">
                     <XIcon className="h-5 w-5" />
                     </SocialIcon>
-                    <SocialIcon label="GitHub" href="https://github.com/yourusername">
+                    <SocialIcon label="GitHub" href="https://github.com/d-madiou">
                     <GithubIcon className="h-5 w-5" />
                     </SocialIcon>
-                    <SocialIcon label="LinkedIn" href="https://linkedin.com/in/yourprofile">
+                    <SocialIcon label="LinkedIn" href="https://www.linkedin.com/in/thierno-madiou-diallo-99583124b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">
                     <LinkedInIcon className="h-5 w-5" />
                     </SocialIcon>
                 </div>

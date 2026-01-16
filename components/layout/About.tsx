@@ -6,6 +6,7 @@ import {
   ChevronRight,
   ChevronLeft
 } from "lucide-react"
+import Image from "../../assets/images/ThiernoHero.png"
 
 // --- Types ---
 
@@ -85,21 +86,49 @@ const TAB_DATA: Record<TabType, TimelineItem[]> = {
     }
   ],
   achievements: [
-    {
-      id: "a1",
-      title: "Startup Winner",
-      subtitle: "Best Campus Startup",
-      description: "Awarded for the 'Tech Nexus' initiative, validating business viability and technical execution.",
-      tags: ["Entrepreneurship"],
-    },
-    {
-      id: "a2",
-      title: "AWS Certified",
-      subtitle: "Global Certification",
-      description: "AWS Cloud Practitioner Certified. Also completed Harvard CS50 and The Odin Project.",
-      tags: ["AWS", "Cloud"],
-    }
-  ]
+  {
+    id: "a1",
+    title: "Startup Winner",
+    subtitle: "Best Campus Startup",
+    description: "Awarded for the 'Tech Nexus' initiative, validating business viability and strong technical execution.",
+    tags: ["Entrepreneurship"],
+  },
+  {
+    id: "a2",
+    title: "AWS Certified",
+    subtitle: "Global Certification",
+    description: "AWS Cloud Practitioner Certified. Also completed Harvard CS50 and The Odin Project.",
+    tags: ["AWS", "Cloud"],
+  },
+  {
+    id: "a3",
+    title: "Full-Stack E-Commerce Platform",
+    subtitle: "Production-Ready System",
+    description: "Designed and built a complete multi-vendor e-commerce platform with real-time notifications, admin dashboards, and automated email workflows using Supabase and React.",
+    tags: ["Full-Stack", "E-Commerce"],
+  },
+  {
+    id: "a4",
+    title: "Real-Time System Implementation",
+    subtitle: "Live Notifications & Emails",
+    description: "Implemented real-time order notifications and transactional email automation using Supabase Edge Functions and React listeners.",
+    tags: ["Real-Time", "Serverless"],
+  },
+  {
+    id: "a5",
+    title: "Advanced State Management",
+    subtitle: "Scalable Frontend Architecture",
+    description: "Built a scalable Redux architecture to manage cart state, products, and checkout flows across a complex multi-role application.",
+    tags: ["Redux", "Frontend"],
+  },
+  {
+    id: "a6",
+    title: "Admin & Analytics Dashboard",
+    subtitle: "Multi-Role Management System",
+    description: "Developed a SuperAdmin dashboard with real-time metrics, user management, seller tracking, and business analytics.",
+    tags: ["Admin", "Analytics"],
+  }
+]
 }
 
 // --- Helper Components ---
@@ -219,7 +248,7 @@ const AboutSection: React.FC = () => {
                 <div className="relative w-20 h-20 rounded-full overflow-hidden border-2 border-black/5">
                    {/* Replace with your real photo */}
                    <img 
-                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=200&h=200"
+                      src={Image.src}
                       alt="Thierno Madiou Diallo"
                       className="w-full h-full object-cover" 
                    />
@@ -243,15 +272,24 @@ const AboutSection: React.FC = () => {
 
              {/* Stats Row */}
              <div className="mt-8 pt-8 border-t border-black/5 grid grid-cols-2 gap-6">
-                <StatBox label="Experience" value="03 Yrs" />
-                <StatBox label="Projects" value="10+" />
+                <StatBox label="Experience" value="01 Yrs" />
+                <StatBox label="Projects" value="15+" />
              </div>
 
-             {/* Action */}
-             <button className="mt-8 w-full py-3 bg-black text-white hover:bg-[#FA891A] font-bold rounded transition-colors flex items-center justify-center gap-2 group shadow-lg hover:shadow-orange-500/20">
-                Download CV
-                <ArrowDownIcon className="w-4 h-4 transition-transform group-hover:translate-y-1" />
-             </button>
+             <a
+                href="/pdf/Thierno_Madiou_Diallo_cv.pdf"
+                download="Thierno_Madiou_Diallo_cv.pdf"
+                className="block"
+              >
+                <button
+                  type="button"
+                  className="mt-8 w-full py-3 bg-black text-white hover:bg-[#FA891A] font-bold rounded transition-colors flex items-center justify-center gap-2 group shadow-lg hover:shadow-orange-500/20"
+                >
+                  Download CV
+                  <ArrowDownIcon className="w-4 h-4 transition-transform group-hover:translate-y-1" />
+                </button>
+              </a>
+
           </div>
 
           {/* Core Tech Stack */}

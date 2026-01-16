@@ -18,8 +18,8 @@ const MarqueeItem: React.FC<{ text: string }> = ({ text }) => (
 const Marquee: React.FC = () => {
   const items = [
     "Full Stack Engineer", 
-    "Data Scientist", 
-    "Python Expert", 
+    "Golang Beginner", 
+    "Python Developer", 
     "AWS Certified", 
     "System Design",
     "Problem Solver"
