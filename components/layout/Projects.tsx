@@ -34,6 +34,7 @@ const ProjectCard: React.FC<{ project: Project; onClick: () => void }> = ({ proj
           alt={project.title}
           fill
           className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
+          unoptimized
         />
         {/* Overlay (Lighter for Light Mode) */}
         <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" />
@@ -119,7 +120,7 @@ const ProjectModal: React.FC<{ project: Project; onClose: () => void }> = ({ pro
             
             {/* Hero Image */}
             <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-black/10 shadow-sm">
-               <Image src={project.image} alt={project.title} fill className="w-full h-full object-cover" />
+               <Image src={project.image} alt={project.title} fill className="w-full h-full object-cover" unoptimized />
             </div>
 
             {/* Metrics Bar */}

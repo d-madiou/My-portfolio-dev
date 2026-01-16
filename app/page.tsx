@@ -11,6 +11,7 @@ import Blog from "@/components/layout/Blog"
 import Contact from "@/components/layout/Contact"
 import Footer from "@/components/layout/Footer"
 import Certificates from "@/components/layout/Certificates"
+import Assessment from "@/components/layout/Assessment"
 
 export default function Home() {
   return (
@@ -83,6 +84,9 @@ export default function Home() {
         
         <section id="projects">
           <Projects />
+        </section>
+        <section id="assessment">
+          <Assessment />
         </section>
         
         <section id="blog">
